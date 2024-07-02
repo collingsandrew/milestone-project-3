@@ -4,6 +4,9 @@ from flask_login import UserMixin
 from sqlalchemy.sql import func
 
 
+# Relationships added to classes with ondelete="CASCADE" set on releveant classes
+# When one data entry is removed, the data relating to that in another table is also deleted
+
 class User(db.Model, UserMixin):
     # schema for the User model
     id = db.Column(db.Integer, primary_key=True)
