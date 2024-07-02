@@ -1,5 +1,8 @@
 body {
     font-family: "Oswald", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -13,4 +16,18 @@ h1, h2, h3, h4, h5, h6 {
 .navbar li {
     font-size: 1.3rem;
     text-transform: uppercase;
+}
+
+footer {
+    margin-top: auto;
+    display: flex;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+}
+
+footer a {
+    font-size: 1.8rem;
+    color: white;
 }
