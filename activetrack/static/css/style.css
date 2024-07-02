@@ -1,3 +1,5 @@
+/* general */
+
 body {
     font-family: "Oswald", sans-serif;
     min-height: 100vh;
@@ -9,6 +11,8 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Bebas Neue", sans-serif;
 }
 
+/* navbar */
+
 .navbar h1 {
     font-size: 3.5rem;
 }
@@ -17,6 +21,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.3rem;
     text-transform: uppercase;
 }
+
+/* footer */
 
 footer {
     margin-top: auto;
@@ -32,6 +38,8 @@ footer a {
     color: white;
 }
 
+/* background image */
+
 .background-image {
     background: url("../images/background-img.jpg") no-repeat center;
     height: auto;
@@ -42,4 +50,11 @@ footer a {
     position: relative;
     background-color: rgba(180, 180, 180, 0.15);
     background-blend-mode: lighten;
+}
+
+/* main page card component */
+
+.main-card {
+    margin-top: 10rem;
+    margin-bottom: 5rem;
 }
