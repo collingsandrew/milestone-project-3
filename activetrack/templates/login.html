@@ -1,3 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
+
+    <!-- main content container -->
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="card main-card container-md">
+            <!-- form for user to log in -->
+            <form method="POST" class="fs-5">
+                <div class="text-center mt-3 form-heading">
+                    <h2>Login</h2>
+                    <p>Log in to your account</p>
+                </div>
+                <div class="form-group m-5">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control mb-3" id="username" name="username" placeholder="Enter username"/>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control mb-3" id="password" name="password" placeholder="Enter password"/>
+                </div>
+                <div class="text-center mb-1">
+                    <button type="submit" class="btn btn-dark text-uppercase">Login</button>
+                </div>
+            </form>
+            <p class="text-center">Not signed up?</p>
+            <a href="{{ url_for('sign_up') }}" class="text-center mb-4 text-decoration-none text-reset">Sign up here</a>
+        </div>
+    </div>
+
 {% endblock %}
