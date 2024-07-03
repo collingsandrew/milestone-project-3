@@ -1,3 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
+
+    <!-- main content container -->
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="card main-card container-md">
+            <!-- form for user to sign up -->
+            <form method="POST" class="fs-5">
+                <div class="text-center mt-3 form-heading">
+                    <h2>Sign Up</h2>
+                    <p>Sign up for an account</p>
+                </div>
+                <div class="form-group m-5">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control mb-3" id="username" name="username" placeholder="Enter username"/>
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control mb-3" id="email" name="email" placeholder="Enter email"/>
+                    <label for="password1">Password</label>
+                    <input type="password" class="form-control mb-3" id="password1" name="password1" placeholder="Enter password"/>
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password"/>
+                </div>
+                <div class="text-center mb-1">
+                    <button type="submit" class="btn btn-dark text-uppercase">Submit</button>
+                </div>
+            </form>
+            <p class="text-center">Already signed up?</p>
+            <a href="{{ url_for('login') }}" class="text-center mb-4 text-decoration-none text-reset">Log in here</a>
+        </div>
+    </div>
+
 {% endblock %}
