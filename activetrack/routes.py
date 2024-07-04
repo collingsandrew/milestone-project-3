@@ -1,6 +1,7 @@
-from flask import render_template, request, flash
+from flask import render_template, request, flash, redirect, url_for
 from activetrack import app, db
 from activetrack.models import User, Exercise, Activity, Comment
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 @app.route("/")
@@ -10,6 +11,20 @@ def home():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        user = User.query.filter_by(username=username).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash('Successfully logged in!', category='success')
+            else:
+                flash('Incorrect password.', category='error')
+        else:
+            flash('Username does not exist.', category='error')
+
     return render_template("login.html")
 
 
@@ -27,7 +42,13 @@ def sign_up():
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
-        if len(username) < 3:
+        user_name = User.query.filter_by(username=username).first()
+        user_email = User.query.filter_by(email=email).first()
+        if user_name:
+            flash('Username already exists', category='error')
+        elif user_email:
+            flash('Email already exists', category='error')
+        elif len(username) < 3:
             flash('Username must be atleast 3 characters.',
             category='error')
         elif len(email) < 4:
@@ -40,6 +61,10 @@ def sign_up():
             flash('Password is too short, please enter more than 7 characters.',
             category='error')
         else:
-            flash('Signed up!', category='success')
+            new_user = User(username=username, email=email, password=generate_password_hash(password1, method='sha256'))
+            db.session.add(new_user)
+            db.session.commit()
+            flash('Successfully signed up!', category='success')
+            return redirect(url_for('home'))
 
     return render_template("sign_up.html")
