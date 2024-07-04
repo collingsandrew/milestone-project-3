@@ -9,17 +9,26 @@ def home():
     return render_template("home.html")
 
 
+# Function to allow the user to log in to their account
 @app.route("/login", methods=['GET', 'POST'])
 def login():
 
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
+        '''
 
+        Error handling to check:
+        - if password is correct
+        - if username exists
+        If no errors, user will be logged in.
+
+        '''
         user = User.query.filter_by(username=username).first()
         if user:
             if check_password_hash(user.password, password):
                 flash('Successfully logged in!', category='success')
+                return redirect(url_for('home'))
             else:
                 flash('Incorrect password.', category='error')
         else:
@@ -33,9 +42,15 @@ def logout():
     return "<p>Logout</p>"
 
 
+# Function to allow the user to sign up for an account
 @app.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
+    '''
 
+    Error handling for form.
+    If no errors, user details will be added to the database.
+
+    '''
     if request.method == 'POST':
         username = request.form.get('username')
         email = request.form.get('email')
