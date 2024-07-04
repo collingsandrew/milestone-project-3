@@ -56,12 +56,12 @@
         {% if category == 'error' %}
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <button type="button" class="btn float-end" data-bs-dismiss="alert"><i class="bi bi-x-lg"></i></button>
         </div>
         {% else %}
         <div class="alert alert-success alter-dismissable fade show" role="alert">
             {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <button type="button" class="btn float-end" data-bs-dismiss="alert"><i class="bi bi-x-lg"></i></button>
         </div>
         {% endif %}
         {% endfor %}
