@@ -2,6 +2,7 @@ from flask import render_template, request, flash, redirect, url_for
 from activetrack import app, db
 from activetrack.models import User, Exercise, Activity, Comment
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user, login_required, logout_user, current_user
 
 
 @app.route("/")
@@ -28,6 +29,7 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash('Successfully logged in!', category='success')
+                login_user(user, remember=True)
                 return redirect(url_for('home'))
             else:
                 flash('Incorrect password.', category='error')
@@ -38,8 +40,10 @@ def login():
 
 
 @app.route('/logout')
+@login_required
 def logout():
-    return "<p>Logout</p>"
+    logout_user()
+    return redirect(url_for('login'))
 
 
 # Function to allow the user to sign up for an account
@@ -79,6 +83,7 @@ def sign_up():
             new_user = User(username=username, email=email, password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
+            login_user(user, remember=True)
             flash('Successfully signed up!', category='success')
             return redirect(url_for('home'))
 
