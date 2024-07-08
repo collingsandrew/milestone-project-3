@@ -7,7 +7,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", user=current_user)
 
 
 # Function to allow the user to log in to their account
@@ -36,7 +36,7 @@ def login():
         else:
             flash('Username does not exist.', category='error')
 
-    return render_template("login.html")
+    return render_template("login.html", user=current_user)
 
 
 @app.route('/logout')
@@ -83,8 +83,7 @@ def sign_up():
             new_user = User(username=username, email=email, password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
             flash('Successfully signed up!', category='success')
-            return redirect(url_for('home'))
+            return redirect(url_for('login'))
 
     return render_template("sign_up.html")
