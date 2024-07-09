@@ -2,7 +2,7 @@
 {% block content %}
 
     <!-- main content container -->
-    <div class="d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-center align-items-center fs-5">
         <div class="card text-center main-card">
             <div class="card-body">
                 <h2 class="card-title m-3">Welcome to ActiveTrack</h2>
@@ -18,11 +18,11 @@
                     Whether you're a beginner or a fitness enthusiast, ActiveTrack helps you stay motivated and focused on achieving your fitness goals.
                 </p>
                 {% if user.is_authenticated %}
-                <a href="#" class="btn btn-dark m-3">Diary</a>
-                <a href="#" class="btn btn-dark m-3">Activity Feed</a>
+                <a href="#" class="btn btn-dark m-3 text-uppercase">Diary</a>
+                <a href="#" class="btn btn-dark m-3 text-uppercase">Activity Feed</a>
                 {% else %}
-                <a href="{{ url_for('login') }}" class="btn btn-dark m-3">Login</a>
-                <a href="{{ url_for('sign_up') }}" class="btn btn-dark m-3">Sign Up</a>
+                <a href="{{ url_for('login') }}" class="btn btn-dark m-3 text-uppercase">Login</a>
+                <a href="{{ url_for('sign_up') }}" class="btn btn-dark m-3 text-uppercase">Sign Up</a>
                 {% endif %}
             </div>
         </div>
