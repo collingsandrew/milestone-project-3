@@ -37,6 +37,7 @@ class Activity(db.Model):
     reps = db.Column(db.Integer)
     distance = db.Column(db.Numeric)
     sets = db.Column(db.Integer)
+    weight = db.Column(db.Numeric)
     duration = db.Column(db.Numeric)
     created_at = db.Column(db.DateTime(timezone=True), default=func.now())
     comments = db.relationship('Comment', backref='activity', lazy=True, cascade="all, delete")
