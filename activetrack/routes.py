@@ -84,7 +84,7 @@ def sign_up():
             new_user = User(username=username, email=email, password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            flash('Successfully signed up!', category='success')
+            flash('Successfully signed up! Please log in', category='success')
             return redirect(url_for('login'))
 
     return render_template("sign_up.html", user=current_user)
@@ -99,4 +99,19 @@ def diary():
 @app.route('/add_activity', methods=["GET", "POST"])
 @login_required
 def add_activity():
+    if request.method == "POST":
+        activity = Activity(
+            user_id=current_user.id,
+            workout_type=request.form.get("workout_type"),
+            exercise_name=request.form.get("exercise_name"),
+            reps=request.form.get("reps"),
+            distance=request.form.get("distance"),
+            sets=request.form.get("sets"),
+            weight=request.form.get("weight"),
+            duration=request.form.get("duration")
+        )
+        db.session.add(activity)
+        db.session.commit()
+        return redirect(url_for('diary'))
+
     return render_template("add_activity.html", user=current_user)
