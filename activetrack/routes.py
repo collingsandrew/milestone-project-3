@@ -39,6 +39,7 @@ def login():
     return render_template("login.html", user=current_user)
 
 
+# Function to allow the user to log out of their account
 @app.route('/logout')
 @login_required
 def logout():
@@ -86,4 +87,4 @@ def sign_up():
             flash('Successfully signed up!', category='success')
             return redirect(url_for('login'))
 
-    return render_template("sign_up.html")
+    return render_template("sign_up.html", user=current_user)
