@@ -30,7 +30,7 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Successfully logged in!', category='success')
                 login_user(user, remember=True)
-                return redirect(url_for('home'))
+                return redirect(url_for('diary'))
             else:
                 flash('Incorrect password.', category='error')
         else:
@@ -94,3 +94,9 @@ def sign_up():
 @login_required
 def diary():
     return render_template("diary.html", user=current_user)
+
+
+@app.route('/add_activity')
+@login_required
+def add_activity():
+    return render_template("add_activity.html", user=current_user)
