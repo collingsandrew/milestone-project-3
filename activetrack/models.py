@@ -32,7 +32,7 @@ class Activity(db.Model):
     # schema for the Activity model
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
-    exercise_id = db.Column(db.Integer, db.ForeignKey('exercise.id', ondelete="CASCADE"), nullable=False)
+    exercise_id = db.Column(db.Integer, db.ForeignKey('exercise.id', ondelete="CASCADE"))
     workout_type = db.Column(db.String, nullable=False)
     exercise_name = db.Column(db.String, nullable=False)
     reps = db.Column(db.Integer)
