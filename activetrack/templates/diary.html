@@ -1,4 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <!-- main content -->
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="card main-card">
+            <h2 class="text-center mt-5 ms-5 me-5">Welcome {{ user.username }}</h2>
+            <div class="card-body text-center">
+                <a href="{{ url_for('add_activity') }}" class="btn btn-dark text-uppercase mb-4">Add Activity</a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
