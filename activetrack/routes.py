@@ -96,7 +96,7 @@ def diary():
     return render_template("diary.html", user=current_user)
 
 
-@app.route('/add_activity')
+@app.route('/add_activity', methods=["GET", "POST"])
 @login_required
 def add_activity():
     return render_template("add_activity.html", user=current_user)
