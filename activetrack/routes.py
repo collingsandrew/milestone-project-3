@@ -44,7 +44,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('home'))
 
 
 # Function to allow the user to sign up for an account
@@ -88,3 +88,9 @@ def sign_up():
             return redirect(url_for('login'))
 
     return render_template("sign_up.html", user=current_user)
+
+
+@app.route('/diary')
+@login_required
+def diary():
+    return render_template("diary.html", user=current_user)
