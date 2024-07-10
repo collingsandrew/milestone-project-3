@@ -39,10 +39,14 @@
                     <input type="number" class="form-control mb-3" id="duration" name="duration" placeholder="Enter duration" value="{{ activity.duration }}" />
                 </div>
                 <!-- submit button -->
-                <div class="text-center mb-4">
+                <div class="text-center mb-2">
                     <button type="submit" class="btn btn-dark text-uppercase">Submit</button>
                 </div>
             </form>
+            <div class="text-center mb-4">
+                <a href="{{ url_for('diary') }}" class="card-link"><button class="btn btn-dark text-uppercase">Cancel</button></a>
+            </div>
+
         </div>
     </div>
 
