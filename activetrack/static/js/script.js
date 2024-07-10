@@ -36,5 +36,34 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(response => response.json())
             .then(data => updateExercises(data))
             .catch(error => console.error('Error fetching exercises:', error));
+        
+        // Function that changes the add activity form fields depending on what workout type is selected
+        function formFieldToggler() {
+            const chosenWorkoutType = this.value;
+            const strengthFields = document.getElementsByClassName('strength_field')
+            const enduranceFields = document.getElementsByClassName('endurance_field')
+
+            if (chosenWorkoutType === 'endurance') {
+                for (let i = 0; i < strengthFields.length; i++) {
+                    strengthFields[i].style.display = 'none';
+                }
+                for (let i = 0; i < enduranceFields.length; i++) {
+                    enduranceFields[i].style.display = 'block';
+                }
+            } else {
+                for (let i = 0; i < strengthFields.length; i++) {
+                    strengthFields[i].style.display = 'block';
+                }
+                for (let i = 0; i < enduranceFields.length; i++) {
+                    enduranceFields[i].style.display = 'none';
+                }
+            }
+        };
+
+        // Call the function to change the form fields on page load
+        formFieldToggler();
+        // When the workout type is changed, the function is called to change the form fields
+        workoutType.addEventListener('change', formFieldToggler);
+
     }
 });
