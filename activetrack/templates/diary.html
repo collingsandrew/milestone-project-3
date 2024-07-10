@@ -12,7 +12,7 @@
     </div>
 
     <!-- user logs -->
-    <div class="row">
+    <div class="row mb-5">
         {% for activity in activities|sort(attribute="created_at", reverse=true) %}
         <div class="col-sm-12 col-md-6 col-lg-3 mt-2 mb-3">
             <div class="card activity-card">
