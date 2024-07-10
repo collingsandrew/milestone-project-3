@@ -93,7 +93,9 @@ def sign_up():
 @app.route('/diary')
 @login_required
 def diary():
-    return render_template("diary.html", user=current_user)
+    activities = list(Activity.query.order_by(Activity.created_at).all())
+    #user_activities = db.session.query(Activity).filter_by(user_id=current_user.id).all()
+    return render_template("diary.html", user=current_user, activities=activities)
 
 
 @app.route('/add_activity', methods=["GET", "POST"])
@@ -104,11 +106,11 @@ def add_activity():
             user_id=current_user.id,
             workout_type=request.form.get("workout_type"),
             exercise_name=request.form.get("exercise_name"),
-            reps=request.form.get("reps"),
-            distance=request.form.get("distance"),
-            sets=request.form.get("sets"),
-            weight=request.form.get("weight"),
-            duration=request.form.get("duration")
+            reps=int(request.form.get("reps", 0)) if request.form.get("reps") else 0,
+            distance=float(request.form.get("distance", 0)) if request.form.get("distance") else 0,
+            sets=int(request.form.get("sets", 0)) if request.form.get("sets") else 0,
+            weight=float(request.form.get("weight", 0)) if request.form.get("weight") else 0,
+            duration=int(request.form.get("duration", 0)) if request.form.get("duration") else 0
         )
         db.session.add(activity)
         db.session.commit()
