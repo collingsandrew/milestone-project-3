@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- main content container -->
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="card main-card container-md">
+            <!-- form for user to edit an activity log -->
+            <form method="POST" class="fs-5">
+                <div class="text-center mt-3 form-heading">
+                    <h2>Edit Activity</h2>
+                </div>
+                <div class="form-group m-5">
+                    <!-- workout_type -->
+                    <label for="workout_type">Workout Type</label>
+                    <select class="form-select mb-3" id="workout_type" name="workout_type" aria-label="select workout type">
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                    </select>
+                    <!-- exercise_name -->
+                    <label for="exercise_name">Exercise</label>
+                    <select class="form-select mb-3" id="exercise_name" name="exercise_name" aria-label="select exercise">
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                    </select>
+                    <!-- reps -->
+                    <label for="reps">Repetitions</label>
+                    <input type="number" class="form-control mb-3" id="reps" name="reps" placeholder="Enter number of repetitions" value="{{ activity.reps }}" />
+                    <!-- sets -->
+                    <label for="sets">Sets</label>
+                    <input type="number" class="form-control mb-3" id="sets" name="sets" placeholder="Enter number of sets" value="{{ activity.sets }}" />
+                    <!-- weight -->
+                    <label for="weight">Weight (KG)</label>
+                    <input type="number" class="form-control mb-3" id="weight" name="weight" placeholder="Enter weight" value="{{ activity.weight }}" />
+                    <!-- distance -->
+                    <label for="distance">Distance (Miles)</label>
+                    <input type="number" class="form-control mb-3" id="distance" name="distance" placeholder="Enter distance" value="{{ activity.distance }}" />
+                    <!-- duration -->
+                    <label for="duration">Duration (Mins)</label>
+                    <input type="number" class="form-control mb-3" id="duration" name="duration" placeholder="Enter duration" value="{{ activity.duration }}" />
+                </div>
+                <!-- submit button -->
+                <div class="text-center mb-4">
+                    <button type="submit" class="btn btn-dark text-uppercase">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
