@@ -16,7 +16,7 @@
                         <option value="strength">Strength</option>
                         <option value="endurance">Endurance</option>
                     </select>
-                    <!-- exercise_name -->
+                    <!-- exercise_name pre populated with json data -->
                     <label for="exercise_name">Exercise</label>
                     <select class="form-select text-capitalize mb-3" id="exercise_name" name="exercise_name" aria-label="select exercise">
                     </select>
@@ -37,10 +37,13 @@
                     <input type="number" class="form-control mb-3" id="duration" name="duration" placeholder="Enter duration"/>
                 </div>
                 <!-- submit button -->
-                <div class="text-center mb-4">
+                <div class="text-center mb-2">
                     <button type="submit" class="btn btn-dark text-uppercase">Submit</button>
                 </div>
             </form>
+            <div class="text-center mb-4">
+                <a href="{{ url_for('diary') }}" class="card-link"><button class="btn btn-dark text-uppercase">Cancel</button></a>
+            </div>
         </div>
     </div>
 
