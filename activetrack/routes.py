@@ -1,8 +1,9 @@
-from flask import render_template, request, flash, redirect, url_for
+from flask import render_template, request, flash, redirect, url_for, jsonify
 from activetrack import app, db
-from activetrack.models import User, Exercise, Activity, Comment
+from activetrack.models import User, Activity, Comment
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
+import json
 
 
 @app.route("/")
@@ -147,3 +148,12 @@ def delete_activity(activity_id):
     db.session.delete(activity)
     db.session.commit()
     return redirect(url_for('diary'))
+
+
+# Function that loads the data from the json file and passes into the exercises_data variable
+@app.route('/get_exercises')
+@login_required
+def get_exercises():
+    with open("activetrack/data/exercises.json", "r") as json_data:
+        exercises_data = json.load(json_data)
+    return jsonify(exercises_data)
