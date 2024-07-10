@@ -17,16 +17,16 @@
         <div class="col-sm-12 col-md-6 col-lg-3 mt-3 mb-3">
             <div class="card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">{{ activity.workout_type }}</h5>
-                    <h6 class="card-title">{{ activity.exercise_name }}</h6>
+                    <h4 class="card-title">{{ activity.workout_type }}</h4>
+                    <h5 class="card-title">{{ activity.exercise_name }}</h5>
                 </div>
                 <ul class="list-group list-group-flush text-uppercase">
-                    <li class="list-group-item">Reps: {{ activity.reps }}</li>
-                    <li class="list-group-item">Distance (miles): {{ activity.distance }}</li>
-                    <li class="list-group-item">Sets: {{ activity.sets }}</li>
-                    <li class="list-group-item">Weight: {{ activity.weight }}</li>
-                    <li class="list-group-item">Duration (mins): {{ activity.duration }}</li>
-                    <li class="list-group-item">{{ activity.created_at.strftime('%d-%m-%Y') }}</li>
+                    <li class="list-group-item">Reps: <span class="float-end">{{ activity.reps }}</span></li>
+                    <li class="list-group-item">Distance (miles): <span class="float-end">{{ activity.distance }}</span></li>
+                    <li class="list-group-item">Sets: <span class="float-end">{{ activity.sets }}</span></li>
+                    <li class="list-group-item">Weight: <span class="float-end">{{ activity.weight }}</span></li>
+                    <li class="list-group-item">Duration (mins): <span class="float-end">{{ activity.duration }}</span></li>
+                    <li class="list-group-item text-center">{{ activity.created_at.strftime('%d-%m-%Y') }}</li>
                 </ul>
                 <div class="card-body text-center text-uppercase">
                     <a href="{{ url_for('edit_activity', activity_id=activity.id) }}" class="card-link"><button class="btn btn-dark text-uppercase me-2">Edit</button></a>
