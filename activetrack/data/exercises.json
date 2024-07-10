@@ -1,0 +1,22 @@
+[
+    {"exercise_type": "strength", "exercise_name": "squat"},
+    {"exercise_type": "strength", "exercise_name": "deadlift"},
+    {"exercise_type": "strength", "exercise_name": "leg press"},
+    {"exercise_type": "strength", "exercise_name": "hip thrusts"},
+    {"exercise_type": "strength", "exercise_name": "calf raises"},
+    {"exercise_type": "strength", "exercise_name": "barbell bench press"},
+    {"exercise_type": "strength", "exercise_name": "dumbbell bench press"},
+    {"exercise_type": "strength", "exercise_name": "pull ups"},
+    {"exercise_type": "strength", "exercise_name": "barbell row"},
+    {"exercise_type": "strength", "exercise_name": "dumbbell row"},
+    {"exercise_type": "strength", "exercise_name": "barbell shoulder press"},
+    {"exercise_type": "strength", "exercise_name": "dumbbell shoulder press"},
+    {"exercise_type": "strength", "exercise_name": "push ups"},
+    {"exercise_type": "strength", "exercise_name": "dips"},
+    {"exercise_type": "endurance", "exercise_name": "running"},
+    {"exercise_type": "endurance", "exercise_name": "cycling"},
+    {"exercise_type": "endurance", "exercise_name": "swimming"},
+    {"exercise_type": "endurance", "exercise_name": "rowing"},
+    {"exercise_type": "endurance", "exercise_name": "stair climb"},
+    {"exercise_type": "endurance", "exercise_name": "hiking"}
+]
