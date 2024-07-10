@@ -137,3 +137,13 @@ def edit_activity(activity_id):
         return redirect(url_for('diary'))
 
     return render_template("edit_activity.html", user=current_user, activity=activity)
+
+
+# Function to allow user to delete an activity log
+@app.route('/delete_activity/<int:activity_id>')
+@login_required
+def delete_activity(activity_id):
+    activity = Activity.query.get_or_404(activity_id)
+    db.session.delete(activity)
+    db.session.commit()
+    return redirect(url_for('diary'))
