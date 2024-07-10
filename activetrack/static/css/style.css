@@ -50,6 +50,7 @@ footer a {
     position: relative;
     background-color: rgba(180, 180, 180, 0.15);
     background-blend-mode: lighten;
+    background-attachment: fixed;
 }
 
 /* main page card component */
