@@ -5,23 +5,17 @@
     <div class="d-flex justify-content-center align-items-center">
         <div class="card main-card container-md">
             <!-- form for user to edit an activity log -->
-            <form method="POST" class="fs-5">
+            <form method="POST" action="{{ url_for('add_activity') }}" class="fs-5">
                 <div class="text-center mt-3 form-heading">
                     <h2>Edit Activity</h2>
                 </div>
                 <div class="form-group m-5">
-                    <!-- workout_type -->
+                    <!-- workout_type - readonly so user can not change the value -->
                     <label for="workout_type">Workout Type</label>
-                    <select class="form-select mb-3" id="workout_type" name="workout_type" aria-label="select workout type">
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                    </select>
-                    <!-- exercise_name -->
+                    <input type="text" class="form-control text-capitalize mb-3" id="workout_type" name="workout_type" aria-label="workout type" value="{{ activity.workout_type }}" readonly></input>
+                    <!-- exercise_name - readonly so user can not change the value -->
                     <label for="exercise_name">Exercise</label>
-                    <select class="form-select mb-3" id="exercise_name" name="exercise_name" aria-label="select exercise">
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                    </select>
+                    <input type="text" class="form-control text-capitalize mb-3" id="exercise_name" name="exercise_name" aria-label="exercise" value="{{ activity.exercise_name }}" readonly></input>
                     <!-- reps -->
                     <label for="reps">Repetitions</label>
                     <input type="number" class="form-control mb-3" id="reps" name="reps" placeholder="Enter number of repetitions" value="{{ activity.reps }}" />
