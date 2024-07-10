@@ -13,24 +13,29 @@
 
     <!-- user logs -->
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-3">
+        {% for activity in activities %}
+        <div class="col-sm-12 col-md-6 col-lg-3 mt-3 mb-3">
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text"></p>
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ activity.user.username }}</h5>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
+                <ul class="list-group list-group-flush text-uppercase">
+                    <li class="list-group-item">{{ activity.workout_type }}</li>
+                    <li class="list-group-item">{{ activity.exercise_name }}</li>
+                    <li class="list-group-item">Reps: {{ activity.reps }}</li>
+                    <li class="list-group-item">Distance (miles): {{ activity.distance }}</li>
+                    <li class="list-group-item">Sets: {{ activity.sets }}</li>
+                    <li class="list-group-item">Weight: {{ activity.weight }}</li>
+                    <li class="list-group-item">Duration (mins): {{ activity.duration }}</li>
+                    <li class="list-group-item">{{ activity.created_at.strftime('%d-%m-%Y') }}</li>
                 </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link"></a>
-                    <a href="#" class="card-link"></a>
+                <div class="card-body text-center text-uppercase">
+                    <a href="#" class="card-link"><button type="submit" class="btn btn-dark text-uppercase">Edit</button></a>
+                    <a href="#" class="card-link"><button type="submit" class="btn btn-dark text-uppercase">Delete</button></a>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 
 {% endblock %}
