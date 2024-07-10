@@ -98,6 +98,7 @@ def diary():
     return render_template("diary.html", user=current_user, activities=activities)
 
 
+# Function to allow user to add an activity log
 @app.route('/add_activity', methods=["GET", "POST"])
 @login_required
 def add_activity():
@@ -117,3 +118,11 @@ def add_activity():
         return redirect(url_for('diary'))
 
     return render_template("add_activity.html", user=current_user)
+
+
+# Function to allow user to edit an activity log
+@app.route('/edit_activity/<int:activity_id>', methods=["GET", "POST"])
+@login_required
+def edit_activity(activity_id):
+    activity = Activity.query.get_or_404(activity_id)
+    return render_template("edit_activity.html", user=current_user, activity=activity)
