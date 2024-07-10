@@ -18,21 +18,11 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"#{self.id}|username:{self.username}| email:{self.email}"
 
-class Exercise(db.Model):
-    # schema for the Exercise model
-    id = db.Column(db.Integer, primary_key=True)
-    exercise_type = db.Column(db.String(250), nullable=False)
-    exercise_name = db.Column(db.String(250), nullable=False)
-    activities = db.relationship('Activity', backref='exercise', lazy=True, cascade="all, delete")
-
-    def __repr__(self):
-        return f"#{self.id}|exercise_type:{self.exercise_type}|exercise_name:{self.exercise_name}"
 
 class Activity(db.Model):
     # schema for the Activity model
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
-    exercise_id = db.Column(db.Integer, db.ForeignKey('exercise.id', ondelete="CASCADE"))
     workout_type = db.Column(db.String, nullable=False)
     exercise_name = db.Column(db.String, nullable=False)
     reps = db.Column(db.Integer)
@@ -46,6 +36,7 @@ class Activity(db.Model):
     def __repr__(self):
         return (f"<Activity id={self.id}|exercise_name={self.exercise_name}|reps={self.reps}|distance={self.distance}"
                 f"sets={self.sets}|duration={self.duration}|created_at={self.created_at}>")
+
 
 class Comment(db.Model):
     # schema for the Comment model
