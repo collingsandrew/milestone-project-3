@@ -13,15 +13,14 @@
 
     <!-- user logs -->
     <div class="row">
-        {% for activity in activities %}
+        {% for activity in activities|sort(attribute="created_at", reverse=true) %}
         <div class="col-sm-12 col-md-6 col-lg-3 mt-3 mb-3">
             <div class="card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">{{ activity.user.username }}</h5>
+                    <h5 class="card-title">{{ activity.workout_type }}</h5>
+                    <h6 class="card-title">{{ activity.exercise_name }}</h6>
                 </div>
                 <ul class="list-group list-group-flush text-uppercase">
-                    <li class="list-group-item">{{ activity.workout_type }}</li>
-                    <li class="list-group-item">{{ activity.exercise_name }}</li>
                     <li class="list-group-item">Reps: {{ activity.reps }}</li>
                     <li class="list-group-item">Distance (miles): {{ activity.distance }}</li>
                     <li class="list-group-item">Sets: {{ activity.sets }}</li>
@@ -35,7 +34,7 @@
                 </div>
             </div>
 
-            <!-- modal to prompt user whether they want to delete log or not -->
+            <!-- modal to prompt user whether they want to delete activity or not -->
             <div class="modal fade" id="modal-{{ activity.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
