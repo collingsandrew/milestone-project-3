@@ -111,7 +111,7 @@ def add_activity():
             distance=float(request.form.get("distance", 0)) if request.form.get("distance") else 0,
             sets=int(request.form.get("sets", 0)) if request.form.get("sets") else 0,
             weight=float(request.form.get("weight", 0)) if request.form.get("weight") else 0,
-            duration=int(request.form.get("duration", 0)) if request.form.get("duration") else 0
+            duration=float(request.form.get("duration", 0)) if request.form.get("duration") else 0
         )
         db.session.add(activity)
         db.session.commit()
@@ -125,4 +125,15 @@ def add_activity():
 @login_required
 def edit_activity(activity_id):
     activity = Activity.query.get_or_404(activity_id)
+    if request.method == "POST":
+        activity.workout_type=request.form.get("workout_type"),
+        activity.exercise_name=request.form.get("exercise_name"),
+        activity.reps=int(request.form.get("reps", 0)) if request.form.get("reps") else 0,
+        activity.distance=float(request.form.get("distance", 0)) if request.form.get("distance") else 0,
+        activity.sets=int(request.form.get("sets", 0)) if request.form.get("sets") else 0,
+        activity.weight=float(request.form.get("weight", 0)) if request.form.get("weight") else 0,
+        activity.duration=float(request.form.get("duration", 0)) if request.form.get("duration") else 0
+        db.session.commit()
+        return redirect(url_for('diary'))
+
     return render_template("edit_activity.html", user=current_user, activity=activity)
