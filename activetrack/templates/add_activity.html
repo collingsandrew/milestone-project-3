@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-center align-items-center">
         <div class="card main-card container-md">
             <!-- form for user to add an activity log -->
-            <form method="POST" class="fs-5">
+            <form method="POST" action="{{ url_for('add_activity') }}" class="fs-5">
                 <div class="text-center mt-3 form-heading">
                     <h2>Add Activity</h2>
                 </div>
@@ -13,14 +13,12 @@
                     <!-- workout_type -->
                     <label for="workout_type">Workout Type</label>
                     <select class="form-select mb-3" id="workout_type" name="workout_type" aria-label="select workout type">
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
+                        <option value="strength">Strength</option>
+                        <option value="endurance">Endurance</option>
                     </select>
                     <!-- exercise_name -->
                     <label for="exercise_name">Exercise</label>
-                    <select class="form-select mb-3" id="exercise_name" name="exercise_name" aria-label="select exercise">
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
+                    <select class="form-select text-capitalize mb-3" id="exercise_name" name="exercise_name" aria-label="select exercise">
                     </select>
                     <!-- reps -->
                     <label for="reps">Repetitions</label>
