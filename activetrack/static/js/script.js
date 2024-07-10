@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Function that changes the add activity form fields depending on what workout type is selected
         function formFieldToggler() {
-            const chosenWorkoutType = this.value;
+            const chosenWorkoutType = workoutType.value;
             const strengthFields = document.getElementsByClassName('strength_field')
             const enduranceFields = document.getElementsByClassName('endurance_field')
 
@@ -64,6 +64,5 @@ document.addEventListener("DOMContentLoaded", function() {
         formFieldToggler();
         // When the workout type is changed, the function is called to change the form fields
         workoutType.addEventListener('change', formFieldToggler);
-
     }
 });
