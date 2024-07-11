@@ -94,9 +94,8 @@ def sign_up():
 @app.route('/diary')
 @login_required
 def diary():
-    activities = list(Activity.query.order_by(Activity.created_at).all())
-    #user_activities = db.session.query(Activity).filter_by(user_id=current_user.id).all()
-    return render_template("diary.html", user=current_user, activities=activities)
+    user_activities = db.session.query(Activity).filter_by(user_id=current_user.id).all()
+    return render_template("diary.html", user=current_user, activities=user_activities)
 
 
 # Function to allow user to add an activity log
@@ -157,3 +156,11 @@ def get_exercises():
     with open("activetrack/data/exercises.json", "r") as json_data:
         exercises_data = json.load(json_data)
     return jsonify(exercises_data)
+
+
+# Function to render all users activity logs on the activity feed page
+@app.route('/activity_feed')
+@login_required
+def activity_feed():
+    activities = list(Activity.query.order_by(Activity.created_at).all())
+    return render_template("activity_feed.html", user=current_user, activities=activities)
