@@ -167,9 +167,9 @@ def activity_feed():
 
 
 # Function to allow user to add a comment to an activity log
-@app.route('/comments', methods=["GET", "POST"])
+@app.route('/add_comment', methods=["GET", "POST"])
 @login_required
-def comments():
+def add_comment():
     if request.method == "POST":
         comment = Comment(
             user_id=current_user.id,

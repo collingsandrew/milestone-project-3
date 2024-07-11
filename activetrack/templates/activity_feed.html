@@ -23,7 +23,7 @@
                     {% if activity.workout_type == 'strength' %}
                     <li class="list-group-item">Reps: <span class="float-end">{{ activity.reps }}</span></li>
                     <li class="list-group-item">Sets: <span class="float-end">{{ activity.sets }}</span></li>
-                    <li class="list-group-item">Weight: <span class="float-end">{{ activity.weight }}</span></li>
+                    <li class="list-group-item">Weight (KG): <span class="float-end">{{ activity.weight }}</span></li>
                     {% elif activity.workout_type == 'endurance' %}
                     <li class="list-group-item">Distance (miles): <span class="float-end">{{ activity.distance }}</span></li>
                     <li class="list-group-item">Duration (hours): <span class="float-end">{{ activity.duration }}</span></li>
@@ -31,8 +31,43 @@
                     <li class="list-group-item text-center">{{ activity.created_at.strftime('%d-%m-%Y') }}</li>
                 </ul>
                 <div class="card-body text-center text-uppercase">
-                    <a href="{{ url_for('edit_activity', activity_id=activity.id) }}" class="card-link"><button class="btn btn-dark text-uppercase me-2">Edit</button></a>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-{{ activity.id }}" class="btn btn-dark text-uppercase">Delete</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-{{ activity.id }}" class="btn btn-dark text-uppercase">Comments</button>
+                </div>
+            </div>
+            <!-- modal to prompt user whether they want to delete activity or not -->
+            <div class="modal fade" id="modal-{{ activity.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Comments</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- display user comments -->
+                            {% for comment in activity.comments %}
+                            <div class="comment mb-2">
+                                <p class="text-capitalize">{{ current_user.username }}:</p>
+                                <p>{{ comment.comment_text }}</p>
+                                <p class="text-muted"><small>{{ comment.created_at.strftime('%d-%m-%Y %H:%M') }}</small></p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="modal-body">
+                            <!-- form for user to add a comment and submit -->
+                            <form method="POST" action="{{ url_for('add_comment') }}">
+                                <input type="hidden" name="activity_id" value="{{ activity.id }}">                                    
+                                <div class="mb-3">
+                                    <label for="comment_text-{{ activity.id }}" class="form-label">Add Comment</label>
+                                    <textarea class="form-control" id="comment_text-{{ activity.id }}" name="comment_text" rows="3"></textarea>
+                                    <button type="submit" class="btn btn-dark mt-2">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark text-uppercase" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
