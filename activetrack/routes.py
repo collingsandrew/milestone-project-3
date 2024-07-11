@@ -164,3 +164,18 @@ def get_exercises():
 def activity_feed():
     activities = list(Activity.query.order_by(Activity.created_at).all())
     return render_template("activity_feed.html", user=current_user, activities=activities)
+
+
+# Function to allow user to add a comment to an activity log
+@app.route('/comments', methods=["GET", "POST"])
+@login_required
+def comments():
+    if request.method == "POST":
+        comment = Comment(
+            user_id=current_user.id,
+            activity_id=request.form.get("activity_id"),
+            comment_text=request.form.get("comment_text")
+        )
+        db.session.add(comment)
+        db.session.commit()
+        return redirect(url_for('activity_feed'))
