@@ -19,7 +19,7 @@
                 </p>
                 {% if user.is_authenticated %}
                 <a href="{{ url_for('diary') }}" class="btn btn-dark m-3 text-uppercase">Diary</a>
-                <a href="#" class="btn btn-dark m-3 text-uppercase">Activity Feed</a>
+                <a href="{{ url_for('activity_feed') }}" class="btn btn-dark m-3 text-uppercase">Activity Feed</a>
                 {% else %}
                 <a href="{{ url_for('login') }}" class="btn btn-dark m-3 text-uppercase">Login</a>
                 <a href="{{ url_for('sign_up') }}" class="btn btn-dark m-3 text-uppercase">Sign Up</a>
