@@ -20,6 +20,7 @@
                     <h5 class="card-title">{{ activity.exercise_name }}</h5>
                 </div>
                 <ul class="list-group list-group-flush text-uppercase">
+                    <!-- different list items show depending on whether the workout type is strength or endurance -->
                     {% if activity.workout_type == 'strength' %}
                     <li class="list-group-item">Reps: <span class="float-end">{{ activity.reps }}</span></li>
                     <li class="list-group-item">Sets: <span class="float-end">{{ activity.sets }}</span></li>
@@ -30,8 +31,9 @@
                     {% endif %}
                     <li class="list-group-item text-center">{{ activity.created_at.strftime('%d-%m-%Y') }}</li>
                 </ul>
-                <div class="card-body text-center text-uppercase">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#comments-modal-{{ activity.id }}" class="btn btn-dark text-uppercase">Comments</button>
+                <div class="card-body text-center text-uppercase justify-content-center d-flex align-items-end">
+                    <!-- button to open the comments modal -->
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#comments-modal-{{ activity.id }}" class="btn btn-sm btn-dark text-uppercase">Comments</button>
                 </div>
             </div>
 
@@ -51,7 +53,9 @@
                                 <p>{{ comment.comment_text }}</p>
                                 <p class="text-muted">
                                     <small>{{ comment.created_at.strftime('%d-%m-%Y %H:%M') }}</small>
+                                    <!-- if the user made the comment or user owns the activity log, delete comment button will show -->
                                     {% if current_user == comment.user or current_user == activity.user %}
+                                    <!-- button to open the delete comment modal -->
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#modal-comment-delete{{ comment.id }}" class="btn text-reset text-decoration-none float-end">Delete Comment</button>
                                     {% endif %}
                                 </p>
@@ -66,18 +70,18 @@
                                 <div class="mb-3">
                                     <label for="comment_text-{{ activity.id }}" class="form-label">Add Comment</label>
                                     <textarea class="form-control" id="comment_text-{{ activity.id }}" name="comment_text" rows="3"></textarea>
-                                    <button type="submit" class="btn btn-dark mt-2">Submit</button>
+                                    <button type="submit" class="btn btn-sm btn-dark text-uppercase mt-2">Submit</button>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-dark text-uppercase" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-sm btn-dark text-uppercase" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- modal to prompt user whether they want to delete activity or not -->
+            <!-- modal to prompt user whether they want to delete comment or not -->
             {% for comment in activity.comments %}
             <div class="modal fade" id="modal-comment-delete{{ comment.id }}" tabindex="-1" aria-labelledby="delete-modal"
                 aria-hidden="true">
@@ -91,8 +95,8 @@
                             Are you sure you want to delete this comment?
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-dark text-uppercase" data-bs-dismiss="modal">Close</button>
-                            <a href="{{ url_for('delete_comment', comment_id=comment.id) }}" class="btn btn-danger text-uppercase">Delete</a>
+                            <button type="button" class="btn btn-sm btn-dark text-uppercase" data-bs-dismiss="modal">Close</button>
+                            <a href="{{ url_for('delete_comment', comment_id=comment.id) }}" class="btn btn-sm btn-danger text-uppercase">Delete</a>
                         </div>
                     </div>
                 </div>
