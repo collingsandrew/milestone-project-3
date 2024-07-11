@@ -4,7 +4,7 @@
     <!-- page header and add activity button -->
     <div class="d-flex justify-content-center align-items-center">
         <div class="card main-card">
-            <h2 class="text-center mt-5 ms-5 me-5">Welcome {{ user.username }}</h2>
+            <h2 class="text-center mt-4 ms-5 me-5">Welcome {{ user.username }}</h2>
             <div class="card-body text-center">
                 <a href="{{ url_for('add_activity') }}" class="btn btn-dark text-uppercase mb-4">Add Activity</a>
             </div>
@@ -32,9 +32,9 @@
                     <li class="list-group-item text-center">{{ activity.created_at.strftime('%d-%m-%Y') }}</li>
                 </ul>
                 <div class="card-body text-center text-uppercase">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#comments-modal-{{ activity.id }}" class="btn btn-dark text-uppercase me-2">Comments</button>
                     <a href="{{ url_for('edit_activity', activity_id=activity.id) }}" class="card-link"><button class="btn btn-dark text-uppercase me-2">Edit</button></a>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-{{ activity.id }}" class="btn btn-dark text-uppercase me-2">Delete</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#comments-modal-{{ activity.id }}" class="btn btn-dark text-uppercase">Comments</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-{{ activity.id }}" class="btn btn-dark text-uppercase">Delete</button>
                 </div>
             </div>
 
@@ -121,7 +121,7 @@
                 </div>
             </div>
             {% endfor %}
-            
+
         </div>
         {% endfor %}
     </div>
