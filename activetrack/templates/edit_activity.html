@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-center align-items-center">
         <div class="card main-card container-md">
             <!-- form for user to edit an activity log -->
-            <form method="POST" action="{{ url_for('add_activity') }}" class="fs-5">
+            <form method="POST" action="{{ url_for('edit_activity', activity_id=activity.id) }}" class="fs-5">
                 <div class="text-center mt-3 form-heading">
                     <h2>Edit Activity</h2>
                 </div>
