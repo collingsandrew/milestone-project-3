@@ -45,6 +45,7 @@ class Comment(db.Model):
     activity_id = db.Column(db.Integer, db.ForeignKey('activity.id', ondelete="CASCADE"), nullable=False)
     comment_text = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), default=func.now())
+    user = db.relationship('User', backref=db.backref('comment', lazy='dynamic'))
 
     def __repr__(self):
         return f"#{self.id}|comment_text:{self.comment_text}|created_at:{self.created_at}"
