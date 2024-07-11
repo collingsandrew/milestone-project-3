@@ -178,7 +178,7 @@ def add_comment():
         )
         db.session.add(comment)
         db.session.commit()
-        return redirect(url_for('activity_feed'))
+        return redirect(request.referrer or url_for('activity_feed'))
 
 
 # Function to allow user to delete a comment
@@ -188,4 +188,4 @@ def delete_comment(comment_id):
     comment = Comment.query.get_or_404(comment_id)
     db.session.delete(comment)
     db.session.commit()
-    return redirect(url_for('activity_feed'))
+    return redirect(request.referrer or url_for('activity_feed'))
