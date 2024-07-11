@@ -179,3 +179,13 @@ def add_comment():
         db.session.add(comment)
         db.session.commit()
         return redirect(url_for('activity_feed'))
+
+
+# Function to allow user to delete an activity log
+@app.route('/delete_comment/<int:comment_id>')
+@login_required
+def delete_comment(comment_id):
+    comment = Comment.query.get_or_404(comment_id)
+    db.session.delete(comment)
+    db.session.commit()
+    return redirect(url_for('activity_feed'))
