@@ -67,3 +67,10 @@ footer a {
 .activity-card {
     height: 100%;
 }
+
+/* comments modal */
+
+.comments-container {
+    max-height: 300px;
+    overflow-y: auto;
+}

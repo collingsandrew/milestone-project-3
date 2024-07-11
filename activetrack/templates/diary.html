@@ -70,9 +70,10 @@
                             <h5 class="modal-title" id="comments-modal">{{ activity.user.username }}'s {{ activity.exercise_name }} activity</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        <div class="comments-container">
                         <div class="modal-body">
                             <!-- display user comments -->
-                            {% for comment in activity.comments %}
+                            {% for comment in activity.comments|sort(attribute="created_at", reverse=true) %}
                             <div class="comment mb-2">
                                 <p class="text-capitalize">{{ comment.user.username }}:</p>
                                 <p>{{ comment.comment_text }}</p>
@@ -87,7 +88,9 @@
                             </div>
                             <hr>
                             {% endfor %}
+                        </div>    
                         </div>
+
                         <div class="modal-body">
                             <!-- form for user to add a comment and submit -->
                             <form method="POST" action="{{ url_for('add_comment') }}">
