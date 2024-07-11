@@ -181,7 +181,7 @@ def add_comment():
         return redirect(url_for('activity_feed'))
 
 
-# Function to allow user to delete an activity log
+# Function to allow user to delete a comment
 @app.route('/delete_comment/<int:comment_id>')
 @login_required
 def delete_comment(comment_id):

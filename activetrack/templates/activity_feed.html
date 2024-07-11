@@ -51,7 +51,7 @@
                                 <p>{{ comment.comment_text }}</p>
                                 <p class="text-muted">
                                     <small>{{ comment.created_at.strftime('%d-%m-%Y %H:%M') }}</small>
-                                    {% if current_user == comment.user %}
+                                    {% if current_user == comment.user or current_user == activity.user %}
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#modal-comment-delete{{ comment.id }}" class="btn text-reset text-decoration-none float-end">Delete Comment</button>
                                     {% endif %}
                                 </p>
