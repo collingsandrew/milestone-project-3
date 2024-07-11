@@ -24,13 +24,13 @@
                     <input type="number" class="strength_field form-control mb-3" id="sets" name="sets" placeholder="Enter number of sets" value="{{ activity.sets }}" />
                     <!-- weight -->
                     <label class="strength_field" for="weight">Weight (KG)</label>
-                    <input type="number" class="strength_field form-control mb-3" id="weight" name="weight" placeholder="Enter weight" value="{{ activity.weight }}" />
+                    <input type="number" step="0.01" class="strength_field form-control mb-3" id="weight" name="weight" placeholder="Enter weight" value="{{ activity.weight }}" />
                     <!-- distance -->
                     <label class="endurance_field" for="distance">Distance (Miles)</label>
-                    <input type="number" class="endurance_field form-control mb-3" id="distance" name="distance" placeholder="Enter distance" value="{{ activity.distance }}" />
+                    <input type="number" step="0.01" class="endurance_field form-control mb-3" id="distance" name="distance" placeholder="Enter distance" value="{{ activity.distance }}" />
                     <!-- duration -->
                     <label class="endurance_field" for="duration">Duration (Hours)</label>
-                    <input type="number" class="endurance_field form-control mb-3" id="duration" name="duration" placeholder="Enter duration" value="{{ activity.duration }}" />
+                    <input type="number" step="0.01" class="endurance_field form-control mb-3" id="duration" name="duration" placeholder="Enter duration" value="{{ activity.duration }}" />
                 </div>
                 <!-- submit button -->
                 <div class="text-center mb-2">
