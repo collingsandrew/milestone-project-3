@@ -24,7 +24,7 @@
                     {% if activity.workout_type == 'strength' %}
                     <li class="list-group-item">Reps: <span class="float-end">{{ activity.reps }}</span></li>
                     <li class="list-group-item">Sets: <span class="float-end">{{ activity.sets }}</span></li>
-                    <li class="list-group-item">Weight: <span class="float-end">{{ activity.weight }}</span></li>
+                    <li class="list-group-item">Weight (KG): <span class="float-end">{{ activity.weight }}</span></li>
                     {% elif activity.workout_type == 'endurance' %}
                     <li class="list-group-item">Distance (miles): <span class="float-end">{{ activity.distance }}</span></li>
                     <li class="list-group-item">Duration (hours): <span class="float-end">{{ activity.duration }}</span></li>
@@ -38,12 +38,12 @@
             </div>
 
             <!-- modal to prompt user whether they want to delete activity or not -->
-            <div class="modal fade" id="modal-{{ activity.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="modal-{{ activity.id }}" tabindex="-1" aria-labelledby="delete-modal"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                            <h5 class="modal-title" id="delete-modal">Warning</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
