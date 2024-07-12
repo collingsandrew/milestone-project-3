@@ -276,28 +276,28 @@ each error_message variable holds a string value relevant to the error
 @app.errorhandler(400)
 def error_400(e):
     error_message = "The server cannot process the request."
-    return render_template("error.html", error_message=error_message), 400
+    return render_template("error.html", user=current_user, error_message=error_message), 400
 
 
 @app.errorhandler(401)
 def error_401(e):
     error_message = "You are not authorized to view that page."
-    return render_template("error.html", error_message=error_message), 401
+    return render_template("error.html", user=current_user, error_message=error_message), 401
 
 
 @app.errorhandler(403)
 def error_403(e):
     error_message = "You do not have permission to view that page."
-    return render_template("error.html", error_message=error_message), 403
+    return render_template("error.html", user=current_user, error_message=error_message), 403
 
 
 @app.errorhandler(404)
 def error_404(e):
     error_message = "Page not found."
-    return render_template("error.html", error_message=error_message), 404
+    return render_template("error.html", user=current_user, error_message=error_message), 404
 
 
 @app.errorhandler(500)
 def error_500(e):
     error_message = "Internal server error."
-    return render_template("error.html", error_message=error_message), 500
+    return render_template("error.html", user=current_user, error_message=error_message), 500
