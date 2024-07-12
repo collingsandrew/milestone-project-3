@@ -114,6 +114,8 @@ Attribution for the background image used for the site:
 
 ### Database
 
+A relational database was implemented for this site, consisting of three tables: users, activities, and comments. PostgreSQL is the relational database used, employing one-to-many relationships with primary and foreign keys, and db.relationship to effectively manage the connections between the tables.
+
 #### User Journey
 
 <details>
@@ -146,3 +148,6 @@ Both of these fonts look professional and are easy to read.
 
 The site utilizes a black and white colour scheme for a clean, clear, and visually appealing design.
 
+## Features
+
+### Features On Each Page
