@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-center align-items-center">
         <div class="card main-card">
             <h2 class="text-center mt-4 ms-5 me-5">Welcome {{ user.username }}</h2>
-            <h4 class="ms-5 me-5 text-center">Easily log your daily activities, monitor your progress, and stay motivated on your fitness journey.</h4>
+            <h3 class="ms-5 me-5 text-center">Easily log your daily activities, monitor your progress, and stay motivated on your fitness journey.</h3>
             <div class="card-body text-center">
                 <a href="{{ url_for('add_activity') }}" class="btn btn-dark text-uppercase mb-4">Add Activity</a>
             </div>
@@ -36,7 +36,7 @@
                 <div class="card-body text-center text-uppercase justify-content-center d-flex align-items-end">
                     <!-- button to open the comments modal -->
                     <button type="button" data-bs-toggle="modal" data-bs-target="#comments-modal-{{ activity.id }}" class="btn btn-sm btn-dark text-uppercase m-1">Comments</button>
-                    <a href="{{ url_for('edit_activity', activity_id=activity.id) }}" class="card-link"><button class="btn btn-sm btn-dark text-uppercase m-1">Edit</button></a>
+                    <a href="{{ url_for('edit_activity', activity_id=activity.id) }}" class="card-link"><button class="btn btn-sm btn-dark text-uppercase m-1 ms-3 me-3">Edit</button></a>
                     <!-- button to open the delete activity modal -->
                     <button type="button" data-bs-toggle="modal" data-bs-target="#modal-{{ activity.id }}" class="btn btn-sm btn-dark text-uppercase m-1">Delete</button>
                 </div>
