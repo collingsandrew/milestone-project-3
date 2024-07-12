@@ -111,3 +111,38 @@ Attribution for the background image used for the site:
 <summary>Error Page</summary>
 <img src="activetrack/static/documents/wireframes/error-page.png">
 </details>
+
+### Database
+
+#### User Journey
+
+<details>
+<summary>Flowchart</summary>
+<img src="activetrack/static/documents/database/user-journey-chart.png">
+</details>
+
+#### Schema
+
+<details>
+<summary>Table Schema</summary>
+<img src="activetrack/static/documents/database/table-schema.png">
+</details>
+
+### Typography
+
+The following Google Fonts were used on this site:
+
+- Bebas Neue is used for the headings on the site.
+
+![Bebas Neue](activetrack/static/documents/fonts/heading-font.png)
+
+- Oswald is used for the main text of the site.
+
+![Oswald](activetrack/static/documents/fonts/regular-font.png)
+
+Both of these fonts look professional and are easy to read.
+
+### Colour Scheme
+
+The site utilizes a black and white colour scheme for a clean, clear, and visually appealing design.
+
