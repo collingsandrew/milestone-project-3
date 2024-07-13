@@ -1,5 +1,7 @@
 # ActiveTrack
 
+This is my third milestone project for the Code Institute Level 5 Diploma in Web Application Development. It was designed to implement CRUD functionality while ensuring responsiveness and accessibility across all devices. The project utilizes HTML, CSS, JavaScript, and Python, along with Bootstrap and Jinja. It is a full-stack application built on a PostgreSQL relational database, utilizing technologies such as Flask and SQLAlchemy with Psycopg2.
+
 [View live webpage](https://active-track-milestone-3-e8142ea239e6.herokuapp.com/)
 
 ## Project Goal
@@ -159,13 +161,25 @@ The site utilizes a black and white colour scheme for a clean, clear, and visual
 
 Each page features a navbar containing the site heading and links to various pages. The links displayed vary based on the user's login status. The navbar adjusts based on the device the user is using.
 
-![Desktop Logged In](activetrack/static/documents/page-features/navbar-logged-in.png)
+<details>
+<summary>Desktop Logged In</summary>
+<img src="activetrack/static/documents/page-features/navbar-logged-in.png">
+</details>
 
-![Desktop Logged Out](activetrack/static/documents/page-features/navbar-logged-out.png)
+<details>
+<summary>Desktop Logged Out</summary>
+<img src="activetrack/static/documents/page-features/navbar-logged-out.png">
+</details>
 
-![Mobile Logged In](activetrack/static/documents/page-features/mobile-navbar-logged-in.png)
+<details>
+<summary>Mobile Logged In</summary>
+<img src="activetrack/static/documents/page-features/mobile-navbar-logged-in.png">
+</details>
 
-![Mobile Logged Out](activetrack/static/documents/page-features/mobile-navbar-logged-out.png)
+<details>
+<summary>Mobile Logged Out</summary>
+<img src="activetrack/static/documents/page-features/mobile-navbar-logged-out.png">
+</details>
 
 User Stories: 3
 
@@ -214,6 +228,22 @@ The diary page greets the user by displaying their username and includes a butto
 <details>
 <summary>Preview</summary>
 <img src="activetrack/static/documents/page-features/diary-page.png">
+</details>
+
+User Stories: 2, 6, 10
+
+#### Add/Edit Activity Page
+
+The add activity page includes a form for users to log an activity. Users can select the type of exercise—either endurance or strength—which populates the exercise dropdown with relevant options. This functionality is implemented using JavaScript, with exercise data provided via a JSON file. The edit page uses the same form structure, but the workout type and exercise fields are fixed and cannot be modified.
+
+<details>
+<summary>Add Activity</summary>
+<img src="activetrack/static/documents/page-features/add-activity-page.png">
+</details>
+
+<details>
+<summary>Edit Activity</summary>
+<img src="activetrack/static/documents/page-features/edit-activity-page.png">
 </details>
 
 User Stories: 2, 6, 10
