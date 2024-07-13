@@ -2,6 +2,8 @@
 
 This is my third milestone project for the Code Institute Level 5 Diploma in Web Application Development. It was designed to implement CRUD functionality while ensuring responsiveness and accessibility across all devices. The project utilizes HTML, CSS, JavaScript, and Python, along with Bootstrap and Jinja. It is a full-stack application built on a PostgreSQL relational database, utilizing technologies such as Flask and SQLAlchemy with Psycopg2.
 
+![Site Image](activetrack/static/documents/site-preview.png)
+
 [View live webpage](https://active-track-milestone-3-e8142ea239e6.herokuapp.com/)
 
 ## Project Goal
