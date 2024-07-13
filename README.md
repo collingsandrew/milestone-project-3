@@ -1,5 +1,7 @@
 # ActiveTrack
 
+[View live webpage](https://active-track-milestone-3-e8142ea239e6.herokuapp.com/)
+
 ## Project Goal
 
 This project aims to develop a user-friendly, reliable, and secure exercise tracking website to help users monitor and enhance their fitness journey. The site will allow users to track their progress in various exercises, such as logging weights and reps for strength training or recording distance and time for endurance activities. Users will have access to detailed records of their achievements and personal bests to help set future goals. Additionally, the website will feature a community page where users can view and comment on each other's achievements, fostering a supportive and interactive environment.
@@ -45,13 +47,14 @@ People with Specific Fitness Goals
 7. As a registered visitor, I want to see other users activities.
 8. As a registered visitor, I want to be able to comment on other users activity logs.
 9. As a registered visitor, I want to be able to delete my comments and other users comments on my own activity logs.
-10. As a registered visitor, I want to be able to update my current activity logs and add new logs.
+10. As a registered visitor, I want to be able to update my current activity logs and delete them.
 
 #### Site owner
 11. As a site owner, I want to provide a seamless onboarding experience for new users so that they can quickly and easily start using the app.
 12. As a site owner, I want to create a community space within the app where users can interact and support each other.
 13. As a site owner, I want to ensure there is sufficient defensive programming to prevent the user deleting data by mistake.
 14. As a site owner, I want to ensure there is sufficient defensive programming to prevent a logged-out user from accessing areas of the site only accessible by being logged into an account.
+15. As a site owner, I want to ensure there is sufficient defensive programming to guarantee that usernames and emails are unique during signup.
 
 ## Accessibility
 
@@ -151,3 +154,110 @@ The site utilizes a black and white colour scheme for a clean, clear, and visual
 ## Features
 
 ### Features On Each Page
+
+#### Navbar
+
+Each page features a navbar containing the site heading and links to various pages. The links displayed vary based on the user's login status. The navbar adjusts based on the device the user is using.
+
+![Desktop Logged In](activetrack/static/documents/page-features/navbar-logged-in.png)
+
+![Desktop Logged Out](activetrack/static/documents/page-features/navbar-logged-out.png)
+
+![Mobile Logged In](activetrack/static/documents/page-features/mobile-navbar-logged-in.png)
+
+![Mobile Logged Out](activetrack/static/documents/page-features/mobile-navbar-logged-out.png)
+
+User Stories: 3
+
+#### Home Page
+
+The home page greets the user with a personalized welcome message that includes their username. It also provides an introduction to the site and links to other pages, which vary based on the user's login status.
+
+<details>
+<summary>Logged In</summary>
+<img src="activetrack/static/documents/page-features/home-page-logged-in.png">
+</details>
+
+<details>
+<summary>Logged Out</summary>
+<img src="activetrack/static/documents/page-features/home-page-logged-out.png">
+</details>
+
+User Stories: 3, 4
+
+#### Sign Up Page
+
+The sign-up page includes a form for users to create an account. It employs defensive programming to ensure usernames and emails are unique and not already in the database. Additionally, the password fields have character length limitations.
+
+<details>
+<summary>Preview</summary>
+<img src="activetrack/static/documents/page-features/sign-up-page.png">
+</details>
+
+User Stories: 1, 11, 15
+
+#### Login Page
+
+The login page includes a form for users to enter their existing credentials to access their account.
+
+<details>
+<summary>Preview</summary>
+<img src="activetrack/static/documents/page-features/login-page.png">
+</details>
+
+User Stories: 5, 14
+
+#### Diary Page
+
+The diary page greets the user by displaying their username and includes a button to add an activity log. Once a log is added, it appears below the welcome message. The layout of the activity log cards is responsive, switching from rows to columns based on screen size. Each activity log card displays all the logged information and the time it was created. Additionally, each card features three buttons: Comments, Edit, and Delete. The Comments button shows any comments made on the activity, the Edit button allows the user to modify the log, and the Delete button removes it.
+
+<details>
+<summary>Preview</summary>
+<img src="activetrack/static/documents/page-features/diary-page.png">
+</details>
+
+User Stories: 2, 6, 10
+
+#### Activity Feed Page
+
+The activity feed page displays all users' activity logs. Each card shows the details of an activity and includes a Comments button, allowing users to view, add, and delete comments. Similar to the diary page, the layout is responsive, adjusting to show in rows or columns based on the device.
+
+<details>
+<summary>Preview</summary>
+<img src="activetrack/static/documents/page-features/activity-feed-page.png">
+</details>
+
+User Stories: 7, 8, 12
+
+#### Comments Modal
+
+The comments modal appears when a user clicks the Comments button on an activity log card, whether on their own logs in the diary page or others' logs in the activity feed page. The modal displays all comments made on that particular activity log. Users can delete their own comments, and the owner of the activity log can delete comments made by others. The modal also includes a text area form for users to write and submit new comments.
+
+<details>
+<summary>Preview</summary>
+<img src="activetrack/static/documents/page-features/comments-modal.png">
+</details>
+
+User Stories: 8, 9, 12
+
+#### Delete Modal
+
+The delete modal appears when a user attempts to delete an activity or a comment. This serves as a defensive programming measure to prevent accidental deletions.
+
+<details>
+<summary>Preview</summary>
+<img src="activetrack/static/documents/page-features/delete-modal.png">
+</details>
+
+User Stories: 9, 10, 13
+
+#### Error Pages
+
+The content of the error pages varies based on the specific error encountered. This is achieved by using a variable declared within the route, which holds the appropriate message for each error.
+
+<details>
+<summary>Preview</summary>
+<img src="activetrack/static/documents/page-features/error-page.png">
+</details>
+
+User Stories: 14
