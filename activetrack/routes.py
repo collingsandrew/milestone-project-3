@@ -88,7 +88,7 @@ def sign_up():
                 # attempt to add new user to the database
                 new_user = User(
                     username=username,
-                    email=email, 
+                    email=email,
                     password=generate_password_hash(
                         password1, method='sha256'
                     )
@@ -96,7 +96,7 @@ def sign_up():
                 db.session.add(new_user)
                 db.session.commit()
                 flash('Successfully signed up! Please log in',
-                    category='success')
+                      category='success')
                 return redirect(url_for('login'))
             except Exception as e:
                 # if an error occurs
@@ -104,7 +104,7 @@ def sign_up():
                 db.session.rollback()
                 # catch the error and flash a message
                 flash(f'Error, failed to sign up: {str(e)}',
-                    category='error')
+                      category='error')
     return render_template("sign_up.html", user=current_user)
 
 
@@ -124,7 +124,7 @@ def diary():
     except Exception as e:
         # catch the error and flash a message, redirect to home page
         flash(f'Error, failed to load activities: {str(e)}',
-            category='error')
+              category='error')
         return redirect(url_for('home'))
 
 
@@ -160,7 +160,7 @@ def add_activity():
             db.session.rollback()
             # catch the error and flash a message
             flash(f'Error, failed to add an activity: {str(e)}',
-                category='error')
+                  category='error')
 
     return render_template("add_activity.html", user=current_user)
 
@@ -173,17 +173,17 @@ def edit_activity(activity_id):
     if request.method == "POST":
         try:
             # attempt to update the database
-            activity.workout_type=request.form.get("workout_type"),
-            activity.exercise_name=request.form.get("exercise_name"),
-            activity.reps=int(request.form.get(
+            activity.workout_type = request.form.get("workout_type"),
+            activity.exercise_name = request.form.get("exercise_name"),
+            activity.reps = int(request.form.get(
                 "reps", 0)) if request.form.get("reps") else 0,
-            activity.distance=float(request.form.get(
+            activity.distance = float(request.form.get(
                 "distance", 0)) if request.form.get("distance") else 0,
-            activity.sets=int(request.form.get(
+            activity.sets = int(request.form.get(
                 "sets", 0)) if request.form.get("sets") else 0,
-            activity.weight=float(request.form.get(
+            activity.weight = float(request.form.get(
                 "weight", 0)) if request.form.get("weight") else 0,
-            activity.duration=float(request.form.get(
+            activity.duration = float(request.form.get(
                 "duration", 0)) if request.form.get("duration") else 0
             db.session.commit()
             flash('Activity updated', category='success')
@@ -194,7 +194,7 @@ def edit_activity(activity_id):
             db.session.rollback()
             # catch the error and flash a message
             flash(f'Error, failed to edit activity: {str(e)}',
-                category='error')
+                  category='error')
 
     return render_template(
         "edit_activity.html",
@@ -219,7 +219,7 @@ def delete_activity(activity_id):
         db.session.rollback()
         # catch the error and flash a message
         flash(f'Error, failed to delete activity: {str(e)}',
-            category='error')
+              category='error')
 
     return redirect(url_for('diary'))
 
@@ -237,12 +237,12 @@ def get_exercises():
     except (IOError, json.JSONDecodeError) as e:
         # if there is an error loading the json file
         flash(f'Error, failed to load JSON file: {str(e)}',
-            category='error')
+              category='error')
         return redirect(url_for('diary'))
     except Exception as e:
         # if there is a general error
         flash(f'Error, failed to load exercises: {str(e)}',
-            category='error')
+              category='error')
         return redirect(url_for('diary'))
 
 
@@ -261,7 +261,7 @@ def activity_feed():
     except Exception as e:
         # catch the error and flash a message, redirect to home page
         flash(f'Error, failed to load activity feed: {str(e)}',
-            category='error')
+              category='error')
         return redirect(url_for('home'))
 
 
@@ -286,7 +286,7 @@ def add_comment():
             db.session.rollback()
             # catch the error and flash a message
             flash(f'Error, failed to add comment: {str(e)}',
-                category='error')
+                  category='error')
     return redirect(request.referrer or url_for('activity_feed'))
 
 
@@ -302,11 +302,11 @@ def delete_comment(comment_id):
         flash('Comment deleted', category='success')
     except Exception as e:
         # if an error occurs
-         # cancel any potential changes made to the database
+        # cancel any potential changes made to the database
         db.session.rollback()
         # catch the error and flash a message
         flash(f'Error, failed to delete comment: {str(e)}',
-            category='error')
+              category='error')
     return redirect(request.referrer or url_for('activity_feed'))
 
 
@@ -317,6 +317,8 @@ https://stackoverflow.com/questions/29516093/how-to-redirect-to-a-external-404-p
 error handlers direct to error.html with error_message variable passed
 each error_message variable holds a string value relevant to the error
 """
+
+
 @app.errorhandler(400)
 def error_400(e):
     error_message = "The server cannot process the request."

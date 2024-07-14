@@ -24,7 +24,7 @@ db = SQLAlchemy(app)
 
 
 from activetrack import routes  # noqa
-from activetrack.models import User # noqa
+from activetrack.models import User  # noqa
 
 
 login_manager = LoginManager()

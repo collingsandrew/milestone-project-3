@@ -4,8 +4,13 @@ from flask_login import UserMixin
 from sqlalchemy.sql import func
 
 
-# Relationships added to classes with ondelete="CASCADE" set on releveant classes
-# When one data entry is removed, the data relating to that in another table is also deleted
+"""
+Relationships added to classes,
+with ondelete="CASCADE" set on releveant classes
+When one data entry is removed,
+the data relating to that in another table is also deleted
+"""
+
 
 class User(db.Model, UserMixin):
     # schema for the User model
@@ -18,8 +23,8 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return (f"#{self.id} |"
-            f"username:{self.username} |"
-            f"email: {self.email}")
+                f"username:{self.username} |"
+                f"email: {self.email}")
 
 
 class Activity(db.Model):
@@ -40,12 +45,12 @@ class Activity(db.Model):
 
     def __repr__(self):
         return (f"<Activity id={self.id} |"
-            f"exercise_name={self.exercise_name} |"
-            f"reps={self.reps} |"
-            f"distance={self.distance} |"
-            f"sets={self.sets} |"
-            f"duration={self.duration} |"
-            f"created_at={self.created_at}>")
+                f"exercise_name={self.exercise_name} |"
+                f"reps={self.reps} |"
+                f"distance={self.distance} |"
+                f"sets={self.sets} |"
+                f"duration={self.duration} |"
+                f"created_at={self.created_at}>")
 
 
 class Comment(db.Model):
@@ -62,5 +67,5 @@ class Comment(db.Model):
 
     def __repr__(self):
         return (f"#{self.id} |"
-        f"comment_text:{self.comment_text} |"
-        f"created_at:{self.created_at}")
+                f"comment_text:{self.comment_text} |"
+                f"created_at:{self.created_at}")
