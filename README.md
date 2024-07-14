@@ -121,7 +121,7 @@ Attribution for the background image used for the site:
 
 ### Database
 
-A relational database was implemented for this site, consisting of three tables: users, activities, and comments. PostgreSQL is the relational database used, employing one-to-many relationships with primary and foreign keys, and db.relationship to effectively manage the connections between the tables.
+A relational database was implemented for this site, consisting of three tables: user, activity, and comment. PostgreSQL is the relational database used, employing one-to-many relationships with primary and foreign keys, and db.relationship to effectively manage the connections between the tables.
 
 #### User Journey
 
@@ -136,6 +136,46 @@ A relational database was implemented for this site, consisting of three tables:
 <summary>Table Schema</summary>
 <img src="activetrack/static/documents/database/table-schema.png">
 </details>
+
+#### User Table
+
+Represents a user in the database.
+
+- id: Unique identifier for each user, serves as the primary key.
+- username: Unique string that identifies the user, used for login purposes.
+- email: Unique email address for the user, used for signup.
+- password: Encrypted password for user authentication.
+- activities (relationship): Establishes a one-to-many relationship with the Activity model. A user can have multiple activities. The cascade="all, delete" ensures that when a user is deleted, all associated activities are also deleted.
+- __repr__: Provides a human-readable representation of the user instance.
+
+#### Activity Table
+
+Represents an activity logged by a user.
+
+- id: Unique identifier for each activity, serves as the primary key.
+- user_id: Foreign key linking to the User table, indicates which user the activity belongs to. The ondelete="CASCADE" ensures that when a user is deleted, all their activities are also deleted.
+- workout_type: Describes the type of workout (endurance or strength).
+- exercise_name: Name of the exercise performed (e.g., running, bench press).
+- reps: Number of repetitions performed (if applicable).
+- distance: Distance covered during the activity (if applicable).
+- sets: Number of sets performed (if applicable).
+- weight: Weight used during the exercise (if applicable).
+- duration: Duration of the activity (if applicable).
+- created_at: Timestamp of when the activity was created, defaulting to the current time.
+- comments (relationship): Establishes a one-to-many relationship with the Comment model. An activity can have multiple comments. The cascade="all, delete" ensures that when an activity is deleted, all associated comments are also deleted.
+- __repr__: Provides a human-readable representation of the activity instance.
+
+#### Comment Table
+
+Represents a comment made by a user on a specific activity.
+
+- id: Unique identifier for each comment, serves as the primary key.
+- user_id: Foreign key linking to the User table, indicates which user made the comment. The ondelete="CASCADE" ensures that when a user is deleted, all their comments are also deleted.
+- activity_id: Foreign key linking to the Activity table, indicates which activity the comment is related to. The ondelete="CASCADE" ensures that when an activity is deleted, all associated comments are also deleted.
+- comment_text: The actual text of the comment.
+- created_at: Timestamp of when the comment was created, defaulting to the current time.
+- user (relationship): Establishes a many-to-one relationship with the User model, allowing access to the user who made the comment.
+- __repr__: Provides a human-readable representation of the comment instance.
 
 ### Typography
 
