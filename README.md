@@ -10,6 +10,34 @@ This is my third milestone project for the Code Institute Level 5 Diploma in Web
 
 This project aims to develop a user-friendly, reliable, and secure exercise tracking website to help users monitor and enhance their fitness journey. The site will allow users to track their progress in various exercises, such as logging weights and reps for strength training or recording distance and time for endurance activities. Users will have access to detailed records of their achievements and personal bests to help set future goals. Additionally, the website will feature a community page where users can view and comment on each other's achievements, fostering a supportive and interactive environment.
 
+### CRUD
+
+This project meets CRUD functionality by:
+
+#### Create
+
+- Users can sign up and create an account.
+- Users can log new activities.
+- Users can add comments.
+
+#### Read
+
+- Users can view their own activity logs.
+- Users can view activity logs of other users.
+- Users can view their own comments.
+- Users can view comments made by others.
+
+#### Update
+
+- Users can update their activity logs.
+
+#### Delete
+
+- Users can delete their activity logs.
+- Users can delete their own comments.
+- Users can delete comments from others on their own activity logs.
+
+
 ## User Experience (UX)
 
 ### Site Contents
@@ -140,6 +168,8 @@ A relational database was implemented for this site, consisting of three tables:
 #### User Table
 
 Represents a user in the database.
+
+User passwords are stored in a hashed format using the werkzeug security library in Python.
 
 - id: Unique identifier for each user, serves as the primary key.
 - username: Unique string that identifies the user, used for login purposes.
