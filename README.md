@@ -449,6 +449,21 @@ User Stories: 14
 
 ## Testing
 
+## Bugs
+
+### User could update another users activity log via URL
+
+To prevent this I implemented a check to verify if the current user's ID matches the activity's user ID. If they do not match, the user is redirected to the home page with a flash error message indicating the issue.
+Code used -
+
+if activity.user_id != current_user.id:
+    flash('You do not have permission to edit this activity.', category='error')
+    return redirect(url_for('home'))
+
+### Werkzeug Build Error
+
+When trying to access a login required page as a user that is not logged in, the page was bringing up a werkzeug build error. The solution to this was changing the login_manager.login_view route from 'routes.home' to 'home'.
+
 ## Credits
 
 - For the user account functionality - [Tech With Tim - YouTube](https://www.youtube.com/watch?v=dam0GPOAvVI&t=7192s)
@@ -462,4 +477,4 @@ User Stories: 14
 - My mentor for guidance throughout the project.
 - Code Institute for their course material.
 - My cohort for help and support throughout the project.
-- [Bro Code YouTube Channel.](https://www.youtube.com/@BroCodez) for everything related to Python and a refresher on JavaScript.
+- [Bro Code YouTube Channel](https://www.youtube.com/@BroCodez) for everything related to Python and a refresher on JavaScript.
