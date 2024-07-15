@@ -100,6 +100,8 @@ This has been achieved by:
 
 ### Imagery
 
+A consistent design is maintained across the site by using the same background image on every page, aligning with the site's theme.
+
 Attribution for the background image used for the site:
 [Image by freepik](https://www.freepik.com/free-photo/top-view-perfectly-ordered-fitness-items_40483721.htm#fromView=search&page=5&position=12&uuid=5b9bb55e-33a3-4753-9d3f-3c1ce3062493)
 
@@ -223,6 +225,10 @@ Both of these fonts look professional and are easy to read.
 ### Colour Scheme
 
 The site utilizes a black and white colour scheme for a clean, clear, and visually appealing design.
+
+## Content
+
+I created a JSON file containing endurance and strength exercises. This is used on the add activity page, where the exercises select box populates with relevant options based on the selected workout type.
 
 ## Features
 
@@ -422,10 +428,38 @@ User Stories: 14
 
 - Used as the relational database for the app.
 
+### Software/Apps Used
+
+- [Chrome Developer Tools](https://developer.chrome.com/docs/devtools)
+- [JSHint](https://jshint.com/)
+- [Code Institute Python Linter](https://pep8ci.herokuapp.com/)
+- [Balsamiq](https://balsamiq.com/wireframes/)
+- [Tiny PNG](https://tinypng.com/)
+- [Adobe Photoshop](https://www.adobe.com/uk/)
+- [Google Fonts](https://fonts.google.com/about)
+- [Git](https://git-scm.com/)
+- [Github](https://github.com/)
+- [GitPod](https://www.gitpod.io/)
+- [Favicon](https://favicon.io/)
+- [Jira Software](https://www.atlassian.com/software/jira)
+- [Am I Responsive](https://ui.dev/amiresponsive)
+- [YouTube](https://www.youtube.com/)
+
 ## Deployment
 
 ## Testing
 
 ## Credits
 
+- For the user account functionality - [Tech With Tim - YouTube](https://www.youtube.com/watch?v=dam0GPOAvVI&t=7192s)
+- Used as a reference for the dynamic exercise select field on the add activity form (alongside the Code Institute material on 'Flask Framework: reading from a JSON file'.) - [By Pretty Printed - YouTube](https://www.youtube.com/watch?v=I2dJuNwlIH0)
+- For the error handling functionality - [Stack Overflow](https://stackoverflow.com/questions/29516093/how-to-redirect-to-a-external-404-page-python-flask)
+- The Code Institute material helped with the overall development of the site.
+- For an explanation of function expressions: to pass jshint - [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)
+
 ## Acknowledgements
+
+- My mentor for guidance throughout the project.
+- Code Institute for their course material.
+- My cohort for help and support throughout the project.
+- [Bro Code YouTube Channel.](https://www.youtube.com/@BroCodez) for everything related to Python and a refresher on JavaScript.
