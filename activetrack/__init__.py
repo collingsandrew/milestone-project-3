@@ -28,7 +28,7 @@ from activetrack.models import User  # noqa
 
 
 login_manager = LoginManager()
-login_manager.login_view = 'routes.home'
+login_manager.login_view = 'home'
 login_manager.init_app(app)
 
 

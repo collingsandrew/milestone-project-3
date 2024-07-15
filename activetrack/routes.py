@@ -172,7 +172,8 @@ def edit_activity(activity_id):
     activity = Activity.query.get_or_404(activity_id)
 
     if activity.user_id != current_user.id:
-        flash('You do not have permission to edit this activity.', category='error')
+        flash('You do not have permission to edit this activity.',
+              category='error')
         return redirect(url_for('home'))
 
     if request.method == "POST":
