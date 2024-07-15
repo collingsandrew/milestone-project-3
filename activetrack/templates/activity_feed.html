@@ -27,7 +27,7 @@
                     <li class="list-group-item">Weight (KG): <span class="float-end">{{ activity.weight }}</span></li>
                     {% elif activity.workout_type == 'endurance' %}
                     <li class="list-group-item">Distance (miles): <span class="float-end">{{ activity.distance }}</span></li>
-                    <li class="list-group-item">Duration (hours): <span class="float-end">{{ activity.duration }}</span></li>
+                    <li class="list-group-item">Duration (minutes): <span class="float-end">{{ activity.duration }}</span></li>
                     {% endif %}
                     <li class="list-group-item text-center">{{ activity.created_at.strftime('%d-%m-%Y') }}</li>
                 </ul>
