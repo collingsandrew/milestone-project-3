@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 document.addEventListener("DOMContentLoaded", function() {
     // depending on whether 'strength' or 'endurance' is chosen as a workout type when adding an activity
     // the related exercises will populate the exercise drop down box
@@ -7,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const exerciseName = document.getElementById("exercise_name");
 
     if (workoutType && exerciseName) {
-        function updateExercises(exercises) {
+        const updateExercises = function(exercises) {
             const selectedType = workoutType.value;
             exerciseName.innerHTML = "";
 
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 option.textContent = exercise.exercise_name;
                 exerciseName.appendChild(option);
             });
-        }
+        };
 
         // Fetches the exercises from the get_exercises route when the workout type is changed
         workoutType.addEventListener("change", function() {
@@ -38,10 +40,10 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error fetching exercises:', error));
         
         // Function that changes the add activity form fields depending on what workout type is selected
-        function formFieldToggler() {
+        const formFieldToggler = function() {
             const chosenWorkoutType = workoutType.value;
-            const strengthFields = document.getElementsByClassName('strength_field')
-            const enduranceFields = document.getElementsByClassName('endurance_field')
+            const strengthFields = document.getElementsByClassName('strength_field');
+            const enduranceFields = document.getElementsByClassName('endurance_field');
 
             if (chosenWorkoutType === 'endurance') {
                 for (let i = 0; i < strengthFields.length; i++) {
