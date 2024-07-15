@@ -4,7 +4,7 @@ This is my third milestone project for the Code Institute Level 5 Diploma in Web
 
 ![Site Image](activetrack/static/documents/site-preview.png)
 
-[View live webpage](https://active-track-milestone-3-e8142ea239e6.herokuapp.com/)
+[View live webpage](https://activetrack-milestone-3-d2dff2fa8baa.herokuapp.com/)
 
 ## Project Goal
 
@@ -36,7 +36,6 @@ This project meets CRUD functionality by:
 - Users can delete their activity logs.
 - Users can delete their own comments.
 - Users can delete comments from others on their own activity logs.
-
 
 ## User Experience (UX)
 
@@ -306,7 +305,7 @@ User Stories: 2, 6, 10
 
 #### Add/Edit Activity Page
 
-The add activity page includes a form for users to log an activity. Users can select the type of exercise—either endurance or strength—which populates the exercise dropdown with relevant options. This functionality is implemented using JavaScript, with exercise data provided via a JSON file. The edit page uses the same form structure, but the workout type and exercise fields are fixed and cannot be modified.
+The add activity page includes a form for users to log an activity. Users can select the type of exercise, either endurance or strength, which populates the exercise dropdown with relevant options. This functionality is implemented using JavaScript, with exercise data provided via a JSON file. The edit page uses the same form structure, but the workout type and exercise fields are fixed and cannot be modified.
 
 <details>
 <summary>Add Activity</summary>
@@ -363,3 +362,70 @@ The content of the error pages varies based on the specific error encountered. T
 </details>
 
 User Stories: 14
+
+## Future Implementations
+
+- Profile Creation: Implement user profiles that can be customised with photos, bios, and personal information.
+- Profile Editing: Allow users to update their details, such as username, email, and password.
+- Account Deletion: Enable users to delete their accounts if they choose to do so.
+- Liking Activities: Allow users to like activities shared by others.
+- Following Users: Implement a feature for users to follow other users to stay updated on their activities.
+- Search Capabilities: Add a search feature that allows users to find specific posts based on workout types, exercises, or other users.
+
+## Technologies Used
+
+### Languages
+
+#### HTML
+
+- Used to create the structure of the site.
+
+#### CSS
+
+- Used for the styling of the site.
+
+#### JavaScript
+
+- Used to dynamically populate the exercises within the add activity form based on the selected workout type, ensuring the exercises select menu updates with appropriate values.
+
+#### Python
+
+- Used for developing the backend of the application.
+
+#### Jinja Templating Language
+
+- Used alongside Python and Flask to dynamically display content.
+
+### Frameworks
+
+#### Bootstrap 5
+
+- Used to easily build pages with a responsive and stylish design.
+
+#### Flask
+
+- Used for backend development of the application, including user session management with Flask-Login.
+
+### Libraries
+
+#### SQLAlchemy
+
+- ORM used with Python to work with postgreSQL.
+
+#### Werkzeug
+
+- Used to provide security features for the app, including functionality for password hashing.
+
+### Database
+
+#### PostgeSQL
+
+- Used as the relational database for the app.
+
+## Deployment
+
+## Testing
+
+## Credits
+
+## Acknowledgements
