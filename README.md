@@ -377,6 +377,8 @@ User Stories: 14
 - Liking Activities: Allow users to like activities shared by others.
 - Following Users: Implement a feature for users to follow other users to stay updated on their activities.
 - Search Capabilities: Add a search feature that allows users to find specific posts based on workout types, exercises, or other users.
+- Dynamic Comment Population: Upon comment submission, the modal will automatically generate and display the new comment without reloading the page.
+- More Exercise Options: Update the exercises JSON file or use an API to provide users with a wider selection of exercises.
 
 ## Technologies Used
 
@@ -437,6 +439,7 @@ User Stories: 14
 - [Tiny PNG](https://tinypng.com/)
 - [Adobe Photoshop](https://www.adobe.com/uk/)
 - [Google Fonts](https://fonts.google.com/about)
+- [Bootstrap Icons](https://icons.getbootstrap.com/)
 - [Git](https://git-scm.com/)
 - [Github](https://github.com/)
 - [GitPod](https://www.gitpod.io/)
@@ -447,6 +450,105 @@ User Stories: 14
 
 ## Deployment
 
+### Local Deployment
+
+#### Fork
+
+Forking a project creates a completely separate codebase and allows a user to make local changes to a project without affecting the original repository itself.
+
+To fork the repository:
+
+1. When logged into GitHub, locate and access the [repository.](https://github.com/collingsandrew/milestone-project-3)
+2. At the top right of the repository, there will be a 'fork' option.
+
+#### Clone
+
+Cloning a project allows a user to make contributions to the main repository, with permission.
+
+To clone the repository:
+
+1. When logged into GitHub, locate and access the [repository.](https://github.com/collingsandrew/milestone-project-3)
+2. Above your files to the right, select the 'code' drop down button and select either HTTPS, SSH or GitHub CLI and then copy the URL below.
+3. Then, in your chosen code editor, change the current working directory to the location you would like the cloned repository to be located.
+4. In the terminal, type <code>git clone</code> and paste the URL that you copied earlier, and then press enter.
+5. Create an env.py file within the root directory of the project and enter the following example code, ensuring you enter your relevant values.
+
+<code>import os</code><br>
+
+<code>os.environ.setdefault("IP", "ADD YOUR IP HERE")</code><br>
+<code>os.environ.setdefault("PORT", "ADD YOUR PORT HERE")</code><br>
+<code>os.environ.setdefault("SECRET_KEY", "ADD_YOUR_SECRET_KEY_HERE")</code><br>
+<code>os.environ.setdefault("DEBUG", "True")</code><br>
+<code>os.environ.setdefault("DEVELOPMENT", "True")</code><br>
+<code>os.environ.setdefault("DB_URL", "postgresql:///activetrack")</code><br>
+
+6. Install the packages required by typing <code>pip3 install -r requirements.txt</code> in the terminal.
+
+#### Creating the database
+
+To create your local database enter the following commands in the terminal:
+
+<code>psql</code><br>
+<code>CREATE DATABASE activetrack;</code><br>
+<code>\c activetrack;</code><br>
+
+You will then be prompted that you have connected to database 'activetrack'.<br>
+__Enter <code>\q</code> to exit psql.__
+
+Then you need to populate the database with the table models for the app.<br>
+To do this enter the following commands in the terminal:
+
+<code>python3</code><br>
+<code>from activetrack import db</code><br>
+<code>db.create_all()</code><br>
+<code>exit()</code><br>
+
+To check your tables exist in the database enter the following commands in the terminal:
+
+<code>psql -d activetrack</code><br>
+<code>\dt</code><br>
+
+This should show the models in the models.py file within a table.<br>
+__Enter <code>\q</code> to exit psql.__
+
+__To run the application enter <code>python3 run.py</code> into the terminal.__
+
+### Deploying to Heroku
+
+To deploy this application to Heroku:
+
+1. If it doesn't already exist, create a file named ProcFile in the root directory and add the code <code>web: python app.py.</code> Ensuring that thw Procfile has a capital 'P' and does not have a blank line at the end of the file.
+2. If it doesn't already exist, create a requirements.txt file by running the command <code>pip freeze > requirements.txt</code> in the terminal.
+3. Commit and push these two files to GitHub.
+4. Sign up for an account on Heroku.
+5. Log in and click __New__ and then __Create a new app__.
+6. Give your application a unique name and choose the region closest to you.
+7. Go to the __Settings__ tab of your new app.
+8. Click __Reveal Config Vars__.
+9. Fill the fields in with your relevant values __(you will need a database link)__ like the following:
+![Heroku vars](activetrack/static/documents/deployment/heroku-vars.png)
+
+__DEBUG is only set temporarily in case we have any errors during deployment. This needs to be removed when debugging is finished.__
+10. Navigate to the __Deploy__ tab of your app.
+11. In the __Deployment method__ section, select __Connect to GitHub__.
+12. Search for your repo and click __Connect__. Optional: You can click __Enable Automatic Deploys__ in case you make any further changes to the application. This will trigger any time code is pushed to your GitHub repository.
+13. If all changes are pushed to GitHub, navigate to the __Manual Deploy__ section and click __Deploy Branch__. This will start the build process. When finished, it should look something like this:
+![Heroku Manual Deploy](activetrack/static/documents/deployment/heroku-manual-deploy.png)
+
+__Next, the tables need to be added to the database:__
+
+1. click the __More__ button and select __Run console__:
+![Heroku Run Console](activetrack/static/documents/deployment/heroku-console.png)
+2. Type <code>python3</code> into the console and click __run__.
+3. In the terminal type the following commands:
+<code>from taskmanager import db</code><br>
+<code>db.create_all()</code><br>
+<code>exit()</code>
+
+__If you make changes to the models anytime during development once deployed to Heroku, you will need to update the tables in the database.__ 
+
+4. The app is now ready, use the __Open app__ button to open the app.
+
 ## Testing
 
 ## Bugs
@@ -454,7 +556,8 @@ User Stories: 14
 ### User could update another users activity log via URL
 
 To prevent this I implemented a check to verify if the current user's ID matches the activity's user ID. If they do not match, the user is redirected to the home page with a flash error message indicating the issue.
-Code used -
+
+Code used:
 
 if activity.user_id != current_user.id:
     flash('You do not have permission to edit this activity.', category='error')
