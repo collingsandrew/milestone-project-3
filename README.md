@@ -529,15 +529,17 @@ To deploy this application to Heroku:
 ![Heroku vars](activetrack/static/documents/deployment/heroku-vars.png)
 
 __DEBUG is only set temporarily in case we have any errors during deployment. This needs to be removed when debugging is finished.__
+
 10. Navigate to the __Deploy__ tab of your app.
 11. In the __Deployment method__ section, select __Connect to GitHub__.
 12. Search for your repo and click __Connect__. Optional: You can click __Enable Automatic Deploys__ in case you make any further changes to the application. This will trigger any time code is pushed to your GitHub repository.
 13. If all changes are pushed to GitHub, navigate to the __Manual Deploy__ section and click __Deploy Branch__. This will start the build process. When finished, it should look something like this:
+
 ![Heroku Manual Deploy](activetrack/static/documents/deployment/heroku-manual-deploy.png)
 
 __Next, the tables need to be added to the database:__
 
-1. click the __More__ button and select __Run console__:
+1. Click the __More__ button and select __Run console__:<br>
 ![Heroku Run Console](activetrack/static/documents/deployment/heroku-console.png)
 2. Type <code>python3</code> into the console and click __run__.
 3. In the terminal type the following commands:
