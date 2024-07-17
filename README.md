@@ -1,6 +1,6 @@
 # ActiveTrack
 
-This is my third milestone project for the Code Institute Level 5 Diploma in Web Application Development. It was designed to implement CRUD functionality while ensuring responsiveness and accessibility across all devices. The project utilizes HTML, CSS, JavaScript, and Python, along with Bootstrap and Jinja. It is a full-stack application built on a PostgreSQL relational database, utilizing technologies such as Flask and SQLAlchemy with Psycopg2.
+This is my third milestone project for the Code Institute Level 5 Diploma in Web Application Development. It was designed to implement CRUD functionality while ensuring responsiveness and accessibility across all devices. The project utilises HTML, CSS, JavaScript, and Python, along with Bootstrap and Jinja. It is a full-stack application built on a PostgreSQL relational database, utilising technologies such as Flask and SQLAlchemy with Psycopg2.
 
 ![Site Image](activetrack/static/documents/site-preview.png)
 
@@ -224,7 +224,7 @@ Both of these fonts look professional and are easy to read.
 
 ### Colour Scheme
 
-The site utilizes a black and white colour scheme for a clean, clear, and visually appealing design.
+The site utilises a black and white colour scheme for a clean, clear, and visually appealing design.
 
 ## Content
 
@@ -517,7 +517,7 @@ __To run the application enter <code>python3 run.py</code> into the terminal.__
 
 To deploy this application to Heroku:
 
-1. If it doesn't already exist, create a file named ProcFile in the root directory and add the code <code>web: python app.py.</code> Ensuring that thw Procfile has a capital 'P' and does not have a blank line at the end of the file.
+1. If it doesn't already exist, create a file named ProcFile in the root directory and add the code <code>web: python app.py.</code> Ensuring that the Procfile has a capital 'P' and does not have a blank line at the end of the file.
 2. If it doesn't already exist, create a requirements.txt file by running the command <code>pip freeze > requirements.txt</code> in the terminal.
 3. Commit and push these two files to GitHub.
 4. Sign up for an account on Heroku.
@@ -552,6 +552,8 @@ __If you make changes to the models anytime during development once deployed to 
 4. The app is now ready, use the __Open app__ button to open the app.
 
 ## Testing
+
+Please refer to [TESTING.md](TESTING.md) for testing information and results.
 
 ## Bugs
 
