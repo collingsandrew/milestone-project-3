@@ -1,8 +1,28 @@
 # ActiveTrack
 
+![Site Image](activetrack/static/documents/site-preview.png)
+
+[View live webpage](https://activetrack-milestone-3-d2dff2fa8baa.herokuapp.com/)
+
 ## Testing
 
 Testing was conducted continuously throughout the entire project development process. Google Developer Tools was used to highlight any issues during development.
+
+Google Developer Tools was used to test the site on various device sizes.
+
+The following devices were used to test the site:
+
+- 32" (3840 x 2160) Desktop Monitor
+- 15.6" (1920 x 1080) ASUS Laptop
+- iPad Tablet
+- Samsung S23 Mobile
+- iPhone 12 Mobile
+
+The following browsers were used to test the site:
+
+- Google Chrome
+- Mozilla Firefox
+- Safari
 
 ### Code Validation
 
@@ -43,7 +63,7 @@ Results:
 
 #### Python Validation
 
-[CI Python Linter](https://pep8ci.herokuapp.com/) was used to validate the Python files. No issues present.
+[pep8ci Python Linter](https://pep8ci.herokuapp.com/) was used to validate the Python files and ensure pep8 compliance. No issues present.
 
 <details>
 <summary>init.py</summary>
@@ -70,6 +90,8 @@ The login functionality restricts WAVE, limiting its access to certain links. Ho
 
 ### Lighthouse Testing
 
+Google Lighthouse was used to test all pages. All pages performed well.
+
 <details>
 <summary>Home Mobile</summary>
 <img src="activetrack/static/documents/testing/home-mobile-lighthouse.png">
@@ -94,6 +116,7 @@ The login functionality restricts WAVE, limiting its access to certain links. Ho
 <summary>Login Desktop</summary>
 <img src="activetrack/static/documents/testing/login-desktop-lighthouse.png">
 </details>
+<details>
 <summary>Diary Mobile</summary>
 <img src="activetrack/static/documents/testing/diary-mobile-lighthouse.png">
 </details>
@@ -101,6 +124,7 @@ The login functionality restricts WAVE, limiting its access to certain links. Ho
 <summary>Diary Desktop</summary>
 <img src="activetrack/static/documents/testing/diary-desktop-lighthouse.png">
 </details>
+<details>
 <summary>Activity Feed Mobile</summary>
 <img src="activetrack/static/documents/testing/activity-feed-mobile-lighthouse.png">
 </details>
@@ -108,6 +132,7 @@ The login functionality restricts WAVE, limiting its access to certain links. Ho
 <summary>Activity Feed Desktop</summary>
 <img src="activetrack/static/documents/testing/activity-feed-desktop-lighthouse.png">
 </details>
+<details>
 <summary>Add Activity Mobile</summary>
 <img src="activetrack/static/documents/testing/add-activity-mobile-lighthouse.png">
 </details>
@@ -115,6 +140,7 @@ The login functionality restricts WAVE, limiting its access to certain links. Ho
 <summary>Add Activity Desktop</summary>
 <img src="activetrack/static/documents/testing/add-activity-desktop-lighthouse.png">
 </details>
+<details>
 <summary>Edit Activity Mobile</summary>
 <img src="activetrack/static/documents/testing/edit-activity-mobile-lighthouse.png">
 </details>
@@ -122,3 +148,4 @@ The login functionality restricts WAVE, limiting its access to certain links. Ho
 <summary>Edit Activity Desktop</summary>
 <img src="activetrack/static/documents/testing/edit-activity-desktop-lighthouse.png">
 </details>
+
