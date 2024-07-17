@@ -98,6 +98,10 @@ This has been achieved by:
 
 ## Design
 
+The site features a straightforward, no-frills design focused on logging activities, viewing other users' activities, and motivating them. It is designed to be user-friendly, easy to navigate, visually appealing, and responsive. The structure of the site ensures simplicity.
+
+Security features have been implemented to enable password hashing when users sign up for an account.
+
 ### Imagery
 
 A consistent design is maintained across the site by using the same background image on every page, aligning with the site's theme.
@@ -214,11 +218,17 @@ The following Google Fonts were used on this site:
 
 - Bebas Neue is used for the headings on the site.
 
-![Bebas Neue](activetrack/static/documents/fonts/heading-font.png)
+<details>
+<summary>Bebas Neue</summary>
+<img src="activetrack/static/documents/fonts/heading-font.png">
+</details>
 
 - Oswald is used for the main text of the site.
 
-![Oswald](activetrack/static/documents/fonts/regular-font.png)
+<details>
+<summary>Oswald</summary>
+<img src="activetrack/static/documents/fonts/regular-font.png">
+</details>
 
 Both of these fonts look professional and are easy to read.
 
@@ -564,7 +574,8 @@ To prevent this I implemented a check to verify if the current user's ID matches
 Code used:
 
 if activity.user_id != current_user.id:
-    flash('You do not have permission to edit this activity.', category='error')
+    flash('You do not have permission to edit this activity.',
+         category='error')
     return redirect(url_for('home'))
 
 ### Werkzeug Build Error
