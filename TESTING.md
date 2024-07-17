@@ -101,3 +101,24 @@ The login functionality restricts WAVE, limiting its access to certain links. Ho
 <summary>Diary Desktop</summary>
 <img src="activetrack/static/documents/testing/diary-desktop-lighthouse.png">
 </details>
+<summary>Activity Feed Mobile</summary>
+<img src="activetrack/static/documents/testing/activity-feed-mobile-lighthouse.png">
+</details>
+<details>
+<summary>Activity Feed Desktop</summary>
+<img src="activetrack/static/documents/testing/activity-feed-desktop-lighthouse.png">
+</details>
+<summary>Add Activity Mobile</summary>
+<img src="activetrack/static/documents/testing/add-activity-mobile-lighthouse.png">
+</details>
+<details>
+<summary>Add Activity Desktop</summary>
+<img src="activetrack/static/documents/testing/add-activity-desktop-lighthouse.png">
+</details>
+<summary>Edit Activity Mobile</summary>
+<img src="activetrack/static/documents/testing/edit-activity-mobile-lighthouse.png">
+</details>
+<details>
+<summary>Edit Activity Desktop</summary>
+<img src="activetrack/static/documents/testing/edit-activity-desktop-lighthouse.png">
+</details>
