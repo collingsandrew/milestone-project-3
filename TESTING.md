@@ -184,25 +184,39 @@ Google Lighthouse was used to test all pages. All pages performed well.
 | Delete  | Check users can delete their own activity logs                      | Pass      |
 | Delete  | Check users can delete their own comments only                      | Pass      |
 | Delete  | Check users can delete other users comments from their own activity logs | Pass      |
-| JavaScript  | Check form fields update when workout type is changed           | Pass      |
+| JavaScript/JSON | Check form fields update with JSON data when workout type is changed | Pass      |
+| Logout  | Check that user is returned to home page with only logged out viewable links | Pass |
 
 ### Error Handling Testing
 
-| Action  | Testing Performed                                                   | Outcome            |
-| ------- | ------------------------------------------------------------------- | ------------------ |
-| Sign Up | Enter username less than 3 characters                               | Flash error message|
-| Sign Up | Enter username that already exists                                  | Flash error message|
-| Sign Up | Enter email less than 4 characters                                  | Flash error message|
-| Sign Up | Enter email that already exists                                     | Flash error message|
-| Sign Up | Enter email that already exists                                     | Flash error message|
+| Action  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| ------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Sign Up | Enter username less than 3 characters                               | Flash error message| Pass      |
+| Sign Up | Enter username that already exists                                  | Flash error message| Pass      |
+| Sign Up | Enter email less than 4 characters                                  | Flash error message| Pass      |
+| Sign Up | Enter email that already exists                                     | Flash error message| Pass      |
+| Sign Up | Enter password that is too short                                    | Flash error message| Pass      |
+| Sign Up | Enter passwords that do not match                                   | Flash error message| Pass      |
+| Login   | Enter username that does not exist                                  | Flash error message| Pass      |
+| Login   | Enter incorrect password                                            | Flash error message| Pass      |
+| Add activity | Leave a field blank                                            | Value of 0 is submitted | Pass |
+| Error Page | Example 404 error                                                | Directs to error page | Pass   |
 
 ### Security Testing
 
-| Feature | Testing Performed                                                   | Pass/Fail |
-| ------- | ------------------------------------------------------------------- | --------- |
-| 
+| Check        | Testing Performed                                             | Expected Outcome | Pass/Fail |
+| ------------ | ------------------------------------------------------------- | ---------------- | --------- |
+| Unauthorised | Check user cannot access a logged in users url/page           | Redirect to home page with flash message | Pass |
+| Unauthorised | Check user cannot access another users edit activity page     | Flash error message | Pass |
 
 ### Responsiveness Testing
+
+| Device | Resonsive |
+| ------ | --------- |
+| Mobile | Yes |
+| Tablet | Yes |
+| Laptop | Yes |
+| Desktop 32" | Yes |
 
 ### Testing User Stories
 
