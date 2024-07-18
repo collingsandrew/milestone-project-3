@@ -305,20 +305,37 @@ Google Lighthouse was used to test all pages. All pages performed well.
 
 11. As a site owner, I want to provide a seamless onboarding experience for new users so that they can quickly and easily start using the app.
 
-Users can quickly navigate to a sign-up page where they can easily register using their email, and choose a username and password.
+- Users can quickly navigate to a sign-up page where they can easily register using their email, and choose a username and password.
 
 12. As a site owner, I want to create a community space within the app where users can interact and support each other.
 
-Registered users can access the activity feed page to view other users' activity logs and comment to show their support.
+- Registered users can access the activity feed page to view other users' activity logs and comment to show their support.
 
 13. As a site owner, I want to ensure there is sufficient defensive programming to prevent the user deleting data by mistake.
 
-Whenever a registered user attempts to delete anything on the site, such as an activity or comment, a modal prompts them to confirm if they want to proceed with the deletion.
+- Whenever a registered user attempts to delete anything on the site, such as an activity or comment, a modal prompts them to confirm if they want to proceed with the deletion.
 
 14. As a site owner, I want to ensure there is sufficient defensive programming to prevent a logged-out user from accessing areas of the site only accessible by being logged into an account.
 
-The site is designed to display specific links based on the user's login status. It uses Flask-Login to manage access to pages, specifying whether a user needs to be logged in. Error handling has been implemented to show flash messages to the user and/or redirect them to relevant or error pages.
+- The site is designed to display specific links based on the user's login status. It uses Flask-Login to manage access to pages, specifying whether a user needs to be logged in. Error handling has been implemented to show flash messages to the user and/or redirect them to relevant or error pages.
 
 15. As a site owner, I want to ensure there is sufficient defensive programming to guarantee that usernames and emails are unique during signup.
 
-If statements are used during the signup process to ensure that the same username and/or email cannot be used more than once.
+- If statements are used during the signup process to ensure that the same username and/or email cannot be used more than once.
+
+## Bugs
+
+### User could update another users activity log via URL
+
+To prevent this I implemented a check to verify if the current user's ID matches the activity's user ID. If they do not match, the user is redirected to the home page with a flash error message indicating the issue.
+
+Code used:
+
+if activity.user_id != current_user.id:
+    flash('You do not have permission to edit this activity.',
+         category='error')
+    return redirect(url_for('home'))
+
+### Werkzeug Build Error
+
+When trying to access a login required page as a user that is not logged in, the page was bringing up a werkzeug build error. The solution to this was changing the login_manager.login_view route from 'routes.home' to 'home'.
