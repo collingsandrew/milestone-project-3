@@ -325,6 +325,8 @@ Google Lighthouse was used to test all pages. All pages performed well.
 
 ## Bugs
 
+### Solved
+
 ### User could update another users activity log via URL
 
 To prevent this I implemented a check to verify if the current user's ID matches the activity's user ID. If they do not match, the user is redirected to the home page with a flash error message indicating the issue.

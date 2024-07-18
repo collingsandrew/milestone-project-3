@@ -10,6 +10,39 @@ This is my third milestone project for the Code Institute Level 5 Diploma in Web
 
 This project aims to develop a user-friendly, reliable, and secure exercise tracking website to help users monitor and enhance their fitness journey. The site will allow users to track their progress in various exercises, such as logging weights and reps for strength training or recording distance and time for endurance activities. Users will have access to detailed records of their achievements and personal bests to help set future goals. Additionally, the website will feature a community page where users can view and comment on each other's achievements, fostering a supportive and interactive environment.
 
+The purpose of this project is to offer a platform that not only tracks fitness activities but also motivates users by showing their progress and encouraging community interaction. The benefits for users include the ability to carefully monitor their fitness journey, set and reach personal goals, and connect with a community of like-minded people for support and motivation. This well-rounded approach is designed to boost user commitment, encourage healthy competition, and ultimately, help users reach their fitness goals.
+
+#### Data
+
+The data in this project includes:
+
+- User Data: Username, email, and password.
+- Activity Logs: Detailed records of exercises users perform, including the type of exercise, weight, reps, distances, and times.
+- Comments: Messages users leave on each other's activity logs to provide support and encouragement.
+
+Users
+
+- Register: Create an account using their email, username, and password.
+- Login: Access their account to view and update their activity logs and interact with the community.
+- Track Progress: Log various exercises and monitor their fitness journey.
+- Engage with Community: View other users' activities and leave comments to show support and motivation.
+
+Activity Logs
+
+- Type of Exercise: Such as strength training, running, cycling, etc.
+- Details: For strength training, this includes weights lifted and reps completed. For endurance activities, this includes distance covered and time taken.
+- Date and Time: When the activity was performed.
+
+Comments
+
+- Encourage: Provide positive feedback and motivation to others.
+- Support: Show appreciation for others' efforts and achievements.
+- Build Community: Foster interaction and engagement among users, creating a sense of community and shared goals.
+
+#### Security
+
+Security features have been implemented to ensure user credentials are protected and unauthorised access is prevented. This includes using Werkzeug security for password hashing to safeguard user passwords. Measures are in place to restrict access to certain pages based on user authentication. The Flask-Login module is used to control access, allowing only logged-in users to view specific pages. Additionally, if statements check whether a user is the owner of an activity, preventing them from editing someone else's activity.
+
 ### CRUD
 
 This project meets CRUD functionality by:
@@ -99,8 +132,6 @@ This has been achieved by:
 ## Design
 
 The site features a straightforward, no-frills design focused on logging activities, viewing other users' activities, and motivating them. It is designed to be user-friendly, easy to navigate, visually appealing, and responsive. The structure of the site ensures simplicity.
-
-Security features have been implemented to enable password hashing when users sign up for an account.
 
 ### Imagery
 
@@ -272,7 +303,7 @@ User Stories: 3
 
 #### Home Page
 
-The home page greets the user with a personalized welcome message that includes their username. It also provides an introduction to the site and links to other pages, which vary based on the user's login status.
+The home page greets the user with a personalised welcome message that includes their username. It also provides an introduction to the site and links to other pages, which vary based on the user's login status.
 
 <details>
 <summary>Logged In</summary>
