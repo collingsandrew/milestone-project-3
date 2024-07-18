@@ -163,5 +163,46 @@ Google Lighthouse was used to test all pages. All pages performed well.
 <img src="activetrack/static/documents/testing/edit-activity-desktop-lighthouse.png">
 </details>
 
+### Feature Testing
+
+| Feature | Testing Performed                                                   | Pass/Fail |
+| ------- | ------------------------------------------------------------------- | --------- |
+| Links   | Check that all links navigate to the correct page                   | Pass      |
+| Buttons | Check all buttons generate correct action                           | Pass      |
+| Modals  | Check all modals appear when expected                               | Pass      |
+| Flash Messages | Check flash messages appear upon user actions ie logged in   | Pass      |
+| Create  | Check a user account can be created (sign up)                       | Pass      |
+| Create  | Check a user can create an activity log                             | Pass      |
+| Create  | Check a user can create a comment                                   | Pass      |
+| Read    | Check the users own activity logs are shown in diary                | Pass      |
+| Read    | Check other users activities are viewable on the activity feed      | Pass      |
+| Read    | Check user can view their own comments on their own activity logs   | Pass      |
+| Read    | Check users can view their comments on other users activity logs    | Pass      |
+| Read    | Check users can view other users comments on their own activity logs | Pass      |
+| Read    | Check users can view other users comments on other users activity logs | Pass      |
+| Update  | Check users can update their own activity logs                      | Pass      |
+| Delete  | Check users can delete their own activity logs                      | Pass      |
+| Delete  | Check users can delete their own comments only                      | Pass      |
+| Delete  | Check users can delete other users comments from their own activity logs | Pass      |
+| JavaScript  | Check form fields update when workout type is changed           | Pass      |
+
+### Error Handling Testing
+
+| Action  | Testing Performed                                                   | Outcome            |
+| ------- | ------------------------------------------------------------------- | ------------------ |
+| Sign Up | Enter username less than 3 characters                               | Flash error message|
+| Sign Up | Enter username that already exists                                  | Flash error message|
+| Sign Up | Enter email less than 4 characters                                  | Flash error message|
+| Sign Up | Enter email that already exists                                     | Flash error message|
+| Sign Up | Enter email that already exists                                     | Flash error message|
+
+### Security Testing
+
+| Feature | Testing Performed                                                   | Pass/Fail |
+| ------- | ------------------------------------------------------------------- | --------- |
+| 
+
+### Responsiveness Testing
+
 ### Testing User Stories
 
