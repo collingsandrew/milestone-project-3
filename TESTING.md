@@ -199,7 +199,8 @@ Google Lighthouse was used to test all pages. All pages performed well.
 | Sign Up | Enter passwords that do not match                                   | Flash error message| Pass      |
 | Login   | Enter username that does not exist                                  | Flash error message| Pass      |
 | Login   | Enter incorrect password                                            | Flash error message| Pass      |
-| Add activity | Leave a field blank                                            | Value of 0 is submitted | Pass |
+| Add activity | Leave fields blank and submit                                  | Value of 0 is submitted | Pass |
+| Add comment | Leave comment field blank and submit                            | Required message appears | Pass |
 | Error Page | Example 404 error                                                | Directs to error page | Pass   |
 
 ### Security Testing
@@ -208,6 +209,8 @@ Google Lighthouse was used to test all pages. All pages performed well.
 | ------------ | ------------------------------------------------------------- | ---------------- | --------- |
 | Unauthorised | Check user cannot access a logged in users url/page           | Redirect to home page with flash message | Pass |
 | Unauthorised | Check user cannot access another users edit activity page     | Flash error message | Pass |
+| Logged Out   | Check logged out user can only view login and sign up links   | Only login and signup shown | Pass |
+| Logged In    | Check logged in user can view diary, activity feed and logout links | Diary, Activity Feed, Logout shown | Pass |
 
 ### Responsiveness Testing
 
@@ -220,3 +223,102 @@ Google Lighthouse was used to test all pages. All pages performed well.
 
 ### Testing User Stories
 
+#### First time visitor
+
+1. As a first-time visitor, I want to create an account quickly using my email so that I can start using the site immediately.
+
+| Feature  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| -------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Sign Up Link/s | Click link/s                                                  | Direct to Sign Up Page | Pass |
+| Sign Up Form   | Fill out form and click submit                                | Direct to Login page with flash message | Pass |
+
+2. As a first-time visitor, I want to log my first activity easily so that I can start tracking my fitness activities right away.
+
+| Feature  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| -------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Diary Link/s | Click link/s                                                    | Direct to Diary page | Pass |
+| Add Activity Link | Click link                                                 | Direct to Add Activity page | Pass |
+| Add Activity Form | Fill out form and click submit                             | Direct to Diary page with flash message with activity logged to page | Pass |
+
+3. As a first-time visitor, I want to be able to easily navigate the site.
+
+| Feature  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| -------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Home Page | Links to relevant pages                                            | Easy Navigation    | Pass |
+| Navbar    | Links to relevant pages                                            | Easy Navigation    | Pass |
+
+4. As a first-time visitor, I want to know immediately what the site is for.
+
+| Feature  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| -------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Home Page | Shows an introduction to the site and its purpose                  | Welcome message explains the use of the site | Pass |
+
+#### Registered visitor
+
+5. As a registered visitor, I want to log in quickly using my credentials so that I can access my saved data.
+
+| Feature  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| -------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Login Link/s | Click link/s                                                    | Direct to Login Page | Pass |
+| Login Form   | Fill out form and click submit                                  | Direct to Diary page with flash message | Pass |
+
+6. As a registered visitor, I want to log different types of activities so that I can accurately track my exercise.
+
+| Feature  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| -------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Diary Link/s | Click link/s                                                    | Direct to Diary page | Pass |
+| Add Activity Link | Click link                                                 | Direct to Add Activity page | Pass |
+| Add Activity Form | Fill out form and click submit                             | Direct to Diary page with flash message with activity logged to page | Pass |
+
+7. As a registered visitor, I want to see other users activities.
+
+| Feature  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| -------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Activity Feed Link/s | Click link/s                                            | Direct to Activity Feed page | Pass |
+| Activity Feed Page | View Activity Feed page                                   | View other users activity logs | Pass |
+
+8. As a registered visitor, I want to be able to comment on other users activity logs.
+
+| Feature  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| -------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Comments Button | Click comments button                                        | Comments modal appears | Pass  |
+| Add Comment     | Add comment to text field and click submit button            | Reload page with flash message with comment added to activity log | Pass |
+
+9. As a registered visitor, I want to be able to delete my comments and other users comments on my own activity logs.
+
+| Feature  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| -------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Comments Button | Click comments button                                        | Comments modal appears | Pass  |
+| Delete Comment     | Click delete button                                       | Delete modal appears   | Pass |
+| Delete Comment     | Click delete button on delete modal                       | Reloads page with flash message and comment deleted | Pass |
+
+10. As a registered visitor, I want to be able to update my current activity logs and delete them.
+
+| Feature  | Testing Performed                                                   | Expected Outcome   | Pass/Fail |
+| -------- | ------------------------------------------------------------------- | ------------------ | --------- |
+| Delete Activity Button | Click Delete button on activity log card              | Delete modal appears | Pass    |
+| Delete Activity Log | Click Delete button on delete modal                      | Reloads page with flash message and activity log deleted | Pass |
+| Edit Button   | Click Edit button on activity log card                         | Directs to edit activity page | Pass |
+| Edit Activity Page| Edit activity fields and submit form                       | Directs to diary page with flash message and activity updated | Pass |
+
+#### Site owner
+
+11. As a site owner, I want to provide a seamless onboarding experience for new users so that they can quickly and easily start using the app.
+
+Users can quickly navigate to a sign-up page where they can easily register using their email, and choose a username and password.
+
+12. As a site owner, I want to create a community space within the app where users can interact and support each other.
+
+Registered users can access the activity feed page to view other users' activity logs and comment to show their support.
+
+13. As a site owner, I want to ensure there is sufficient defensive programming to prevent the user deleting data by mistake.
+
+Whenever a registered user attempts to delete anything on the site, such as an activity or comment, a modal prompts them to confirm if they want to proceed with the deletion.
+
+14. As a site owner, I want to ensure there is sufficient defensive programming to prevent a logged-out user from accessing areas of the site only accessible by being logged into an account.
+
+The site is designed to display specific links based on the user's login status. It uses Flask-Login to manage access to pages, specifying whether a user needs to be logged in. Error handling has been implemented to show flash messages to the user and/or redirect them to relevant or error pages.
+
+15. As a site owner, I want to ensure there is sufficient defensive programming to guarantee that usernames and emails are unique during signup.
+
+If statements are used during the signup process to ensure that the same username and/or email cannot be used more than once.
