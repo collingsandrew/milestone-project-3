@@ -595,7 +595,7 @@ __If you make changes to the models anytime during development once deployed to 
 
 ## Testing
 
-Please refer to [TESTING.md](TESTING.md) for testing information and results.
+Please refer to [TESTING.md](TESTING.md) for testing information, results and bugs.
 
 ## Credits
 
@@ -604,6 +604,7 @@ Please refer to [TESTING.md](TESTING.md) for testing information and results.
 - For the error handling functionality - [Stack Overflow](https://stackoverflow.com/questions/29516093/how-to-redirect-to-a-external-404-page-python-flask)
 - The Code Institute material helped with the overall development of the site.
 - For an explanation of function expressions: to pass jshint - [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)
+- For the counting of the comments list and displaying the count - [Stack Overflow](https://stackoverflow.com/questions/1465249/get-lengths-of-a-list-in-a-jinja2-template)
 
 ## Acknowledgements
 
