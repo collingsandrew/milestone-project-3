@@ -199,7 +199,6 @@ Google Lighthouse was used to test all pages. All pages performed well.
 | Sign Up | Enter passwords that do not match                                   | Flash error message| Pass      |
 | Login   | Enter username that does not exist                                  | Flash error message| Pass      |
 | Login   | Enter incorrect password                                            | Flash error message| Pass      |
-| Add activity | Leave fields blank and submit                                  | Value of 0 is submitted | Pass |
 | Add comment | Leave comment field blank and submit                            | Required message appears | Pass |
 | Error Page | Example 404 error                                                | Directs to error page | Pass   |
 
