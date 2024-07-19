@@ -227,7 +227,7 @@ def delete_activity(activity_id):
         flash(f'Error, failed to delete activity: {str(e)}',
               category='error')
 
-    return redirect(url_for('diary'))
+    return redirect(request.referrer or url_for('diary'))
 
 
 # Function that loads the data from the json file
