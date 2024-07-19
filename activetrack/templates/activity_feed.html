@@ -32,8 +32,9 @@
                     <li class="list-group-item text-center">{{ activity.created_at.strftime('%d-%m-%Y') }}</li>
                 </ul>
                 <div class="card-body text-center text-uppercase justify-content-center d-flex align-items-end">
-                    <!-- button to open the comments modal -->
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#comments-modal-{{ activity.id }}" class="btn btn-sm btn-dark text-uppercase">Comments</button>
+                    <!-- button to open the comments modal, shows how many comments are present -->
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#comments-modal-{{ activity.id }}" class="btn btn-sm btn-dark text-uppercase m-1">Comments ({{ activity.comments|length }})</button>
+
                 </div>
             </div>
 
