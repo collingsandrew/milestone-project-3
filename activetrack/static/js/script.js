@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error fetching exercises:', error));
         
         // Function that changes the add activity form fields depending on what workout type is selected
+        // Adds or removes the required attribute depending on if the field is shown
         const formFieldToggler = function() {
             const chosenWorkoutType = workoutType.value;
             const strengthFields = document.getElementsByClassName('strength_field');
@@ -48,16 +49,20 @@ document.addEventListener("DOMContentLoaded", function() {
             if (chosenWorkoutType === 'endurance') {
                 for (let i = 0; i < strengthFields.length; i++) {
                     strengthFields[i].style.display = 'none';
+                    strengthFields[i].removeAttribute('required');
                 }
                 for (let i = 0; i < enduranceFields.length; i++) {
                     enduranceFields[i].style.display = 'block';
+                    enduranceFields[i].setAttribute('required', "");
                 }
             } else {
                 for (let i = 0; i < strengthFields.length; i++) {
                     strengthFields[i].style.display = 'block';
+                    strengthFields[i].setAttribute('required', "");
                 }
                 for (let i = 0; i < enduranceFields.length; i++) {
                     enduranceFields[i].style.display = 'none';
+                    enduranceFields[i].removeAttribute('required');
                 }
             }
         };
