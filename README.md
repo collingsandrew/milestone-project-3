@@ -477,6 +477,7 @@ User Stories: 14
 - [JSHint](https://jshint.com/)
 - [Code Institute Python Linter](https://pep8ci.herokuapp.com/)
 - [Balsamiq](https://balsamiq.com/wireframes/)
+- [Lucid Chart](https://www.lucidchart.com/pages/?)
 - [Tiny PNG](https://tinypng.com/)
 - [Adobe Photoshop](https://www.adobe.com/uk/)
 - [Google Fonts](https://fonts.google.com/about)
